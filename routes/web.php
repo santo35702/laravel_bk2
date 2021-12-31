@@ -5,6 +5,7 @@ use App\Http\Livewire\Frontend\HomePage;
 use App\Http\Livewire\Frontend\AboutUsPage;
 use App\Http\Livewire\Frontend\Product\IndexPage;
 use App\Http\Livewire\Frontend\Product\DetailsPage;
+use App\Http\Livewire\Frontend\FAQPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,5 @@ Route::prefix('products')->name('products.')->group(function ()
     Route::get('/', IndexPage::class)->name('index');
     Route::get('/details', DetailsPage::class)->name('details');
 });
+
+Route::get('/faqs', FAQPage::class)->name('faq');
