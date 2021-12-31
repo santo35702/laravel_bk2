@@ -215,8 +215,8 @@
                 <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
                 <ul id="MobileNav" class="mobile-nav">
                     <li class="lvl1"><a href="{{ route('home') }}">Home </a></li>
+                    <li class="lvl1"><a href="{{ route('about') }}">About Us </a></li>
                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
-                    <li class="lvl1"><a href="#">details </a></li>
                     <li class="lvl1 parent megamenu"><a href="about-us.html">Pages <i class="anm anm-plus-l"></i></a>
                         <ul>
                             <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-plus-l"></i></a></li>
