@@ -19,7 +19,11 @@
 
         @livewireStyles
     </head>
-    <body class="belle template-index template-index-belle">
+    <body class="belle @if (request()->routeIs('home'))
+        template-index template-index-belle
+    @elseif (request()->routeIs('products.index'))
+        template-collection
+    @endif">
         <div id="pre-loader">
             <img src="{{ asset('assets/images/loader.gif') }}" alt="Loading..." />
         </div>
@@ -90,7 +94,9 @@
             </div>
             <!--End Top Header-->
             <!--Header-->
-            <div class="header-wrap classicHeader animated d-flex">
+            <div class="header-wrap animated d-flex @if (request()->routeIs('home'))
+                classicHeader
+            @endif">
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <!--Desktop Logo-->
@@ -110,9 +116,9 @@
                             <!--Desktop Menu-->
                             <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                                 <ul id="siteNav" class="site-nav medium center hidearrow">
-                                    <li class="lvl1 parent"><a href="{{ route('home') }}">Home </a></li>
-                                    <li class="lvl1 parent"><a href="#">Shop </a></li>
-                                    <li class="lvl1 parent"><a href="#">Product </a></li>
+                                    <li class="lvl1"><a href="{{ route('home') }}">Home </a></li>
+                                    <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
+                                    <li class="lvl1"><a href="#">details </a></li>
                                     <li class="lvl1 parent dropdown"><a href="#">Pages <i class="anm anm-angle-down-l"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a></li>
@@ -205,8 +211,8 @@
                 <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
                 <ul id="MobileNav" class="mobile-nav">
                     <li class="lvl1"><a href="{{ route('home') }}">Home </a></li>
-                    <li class="lvl1"><a href="#">Shop </a></li>
-                    <li class="lvl1"><a href="product-layout-1.html">Product </a></li>
+                    <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
+                    <li class="lvl1"><a href="product-layout-1.html">details </a></li>
                     <li class="lvl1 parent megamenu"><a href="about-us.html">Pages <i class="anm anm-plus-l"></i></a>
                         <ul>
                             <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-plus-l"></i></a></li>
