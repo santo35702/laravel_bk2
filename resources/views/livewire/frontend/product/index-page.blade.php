@@ -141,11 +141,11 @@
                                 <div class="grid__item">
                                   <div class="mini-list-item">
                                     <div class="mini-view_image">
-                                        <a class="grid-view-item__link" href="#">
+                                        <a class="grid-view-item__link" href="{{ route('products.details') }}">
                                             <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/mini-product-img.jpg') }}" alt="" />
                                         </a>
                                     </div>
-                                    <div class="details"> <a class="grid-view-item__title" href="#">Cena Skirt</a>
+                                    <div class="details"> <a class="grid-view-item__title" href="{{ route('products.details') }}">Cena Skirt</a>
                                       <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$173.60</span></span></div>
                                     </div>
                                   </div>
@@ -282,7 +282,7 @@
                                 <!-- start product image -->
                                 <div class="product-image">
                                     <!-- start product image -->
-                                    <a href="#">
+                                    <a href="{{ route('products.details') }}">
                                         <!-- image -->
                                         <img class="primary blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1.jpg') }}" alt="image" title="product">
                                         <!-- End image -->
@@ -326,7 +326,7 @@
                                 <div class="product-details text-center">
                                     <!-- product name -->
                                     <div class="product-name">
-                                        <a href="#">Edna Dress</a>
+                                        <a href="{{ route('products.details') }}">Edna Dress</a>
                                     </div>
                                     <!-- End product name -->
                                     <!-- product price -->
