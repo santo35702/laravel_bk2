@@ -23,7 +23,6 @@
                                     <ul class="sublinks">
                                         <li class="level2"><a href="#;" class="site-nav">Men</a></li>
                                         <li class="level2"><a href="#;" class="site-nav">Women</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">Child</a></li>
                                         <li class="level2"><a href="#;" class="site-nav">View All Clothing</a></li>
                                     </ul>
                                 </li>
@@ -31,7 +30,6 @@
                                     <ul class="sublinks">
                                         <li class="level2"><a href="#;" class="site-nav">Ring</a></li>
                                         <li class="level2"><a href="#;" class="site-nav">Neckalses</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">Eaarings</a></li>
                                         <li class="level2"><a href="#;" class="site-nav">View All Jewellery</a></li>
                                     </ul>
                                 </li>
@@ -144,7 +142,7 @@
                                   <div class="mini-list-item">
                                     <div class="mini-view_image">
                                         <a class="grid-view-item__link" href="#">
-                                            <img class="grid-view-item__image" src="assets/images/product-images/mini-product-img.jpg" alt="" />
+                                            <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/mini-product-img.jpg') }}" alt="" />
                                         </a>
                                     </div>
                                     <div class="details"> <a class="grid-view-item__title" href="#">Cena Skirt</a>
@@ -183,7 +181,7 @@
                     <!--End Popular Products-->
                     <!--Banner-->
                     <div class="sidebar_widget static-banner">
-                        <img src="assets/images/side-banner-2.jpg" alt="" />
+                        <img src="{{ asset('assets/images/side-banner-2.jpg') }}" alt="" />
                     </div>
                     <!--Banner-->
                     <!--Information-->
@@ -236,23 +234,23 @@
             <!--Main Content-->
             <div class="col-12 col-sm-12 col-md-9 col-lg-9 main-col">
                 <div class="category-description">
-                    <h3>Category Description</h3>
+                    <h3>Products Description</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.</p>
                     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
                 </div>
                 <hr>
-                <div class="productList product-load-more">
+                <div class="productList">
                     <!--Toolbar-->
                     <button type="button" class="btn btn-filter d-block d-md-none d-lg-none"> Product Filters</button>
                     <div class="toolbar">
                         <div class="filters-toolbar-wrapper">
                             <div class="row">
                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
-                                    <a href="shop-left-sidebar.html" title="Grid View" class="change-view change-view--active">
-                                        <img src="assets/images/grid.jpg" alt="Grid" />
+                                    <a href="{{ route('products.index') }}" title="Grid View" class="change-view change-view--active">
+                                        <img src="{{ asset('assets/images/grid.jpg') }}" alt="Grid" />
                                     </a>
                                     <a href="shop-listview.html" title="List View" class="change-view">
-                                        <img src="assets/images/list.jpg" alt="List" />
+                                        <img src="{{ asset('assets/images/list.jpg') }}" alt="List" />
                                     </a>
                                 </div>
                                 <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
@@ -274,7 +272,6 @@
                                         <input class="collection-header__default-sort" type="hidden" value="manual">
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -287,7 +284,7 @@
                                     <!-- start product image -->
                                     <a href="#">
                                         <!-- image -->
-                                        <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image1.jpg" src="assets/images/product-images/product-image1.jpg" alt="image" title="product">
+                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1.jpg') }}" alt="image" title="product">
                                         <!-- End image -->
                                         <!-- Hover image -->
                                         <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image1-1.jpg" src="assets/images/product-images/product-image1-1.jpg" alt="image" title="product">
@@ -1539,10 +1536,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="infinitpaginOuter">
-                    <div class="infinitpagin">
-                        <a href="#" class="btn loadMore">Load More</a>
-                    </div>
+                <hr class="clear">
+                <div class="pagination">
+                    <ul>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="next"><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
             <!--End Main Content-->
