@@ -25,6 +25,8 @@
         template-collection
     @elseif (request()->routeIs('products.details'))
         template-product
+    @elseif (request()->routeIs('about'))
+        page-template
     @endif">
         <div id="pre-loader">
             <img src="{{ asset('assets/images/loader.gif') }}" alt="Loading..." />
@@ -119,8 +121,8 @@
                             <nav class="grid__item" id="AccessibleNav"><!-- for mobile -->
                                 <ul id="siteNav" class="site-nav medium center hidearrow">
                                     <li class="lvl1"><a href="{{ route('home') }}">Home </a></li>
+                                    <li class="lvl1"><a href="{{ route('about') }}">About Us </a></li>
                                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
-                                    <li class="lvl1"><a href="#">details </a></li>
                                     <li class="lvl1 parent dropdown"><a href="#">Pages <i class="anm anm-angle-down-l"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a></li>
