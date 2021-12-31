@@ -16,6 +16,8 @@
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+
+        @livewireStyles
     </head>
     <body class="belle template-index template-index-belle">
         <div id="pre-loader">
@@ -428,5 +430,7 @@
             });
         </script>
         <!--End For Newsletter Popup-->
+
+        @livewireScripts
     </body>
 </html>
