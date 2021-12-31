@@ -23,6 +23,8 @@
         template-index template-index-belle
     @elseif (request()->routeIs('products.index'))
         template-collection
+    @elseif (request()->routeIs('products.details'))
+        template-product
     @endif">
         <div id="pre-loader">
             <img src="{{ asset('assets/images/loader.gif') }}" alt="Loading..." />
@@ -212,7 +214,7 @@
                 <ul id="MobileNav" class="mobile-nav">
                     <li class="lvl1"><a href="{{ route('home') }}">Home </a></li>
                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
-                    <li class="lvl1"><a href="product-layout-1.html">details </a></li>
+                    <li class="lvl1"><a href="#">details </a></li>
                     <li class="lvl1 parent megamenu"><a href="about-us.html">Pages <i class="anm anm-plus-l"></i></a>
                         <ul>
                             <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-plus-l"></i></a></li>
@@ -266,13 +268,13 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-5 d-flex justify-content-end align-items-center">
                                 <div class="footer-social">
                                     <ul class="list--inline site-footer__social-icons social-icons">
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Facebook"><i class="icon icon-facebook"></i></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Twitter"><i class="icon icon-twitter"></i> <span class="icon__fallback-text">Twitter</span></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Pinterest"><i class="icon icon-pinterest"></i> <span class="icon__fallback-text">Pinterest</span></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Instagram"><i class="icon icon-instagram"></i> <span class="icon__fallback-text">Instagram</span></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Tumblr"><i class="icon icon-tumblr-alt"></i> <span class="icon__fallback-text">Tumblr</span></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on YouTube"><i class="icon icon-youtube"></i> <span class="icon__fallback-text">YouTube</span></a></li>
-                                        <li><a class="social-icons__link" href="#" target="_blank" title="Belle Multipurpose Bootstrap 4 Template on Vimeo"><i class="icon icon-vimeo-alt"></i> <span class="icon__fallback-text">Vimeo</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Facebook"><i class="icon icon-facebook"></i></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Twitter"><i class="icon icon-twitter"></i> <span class="icon__fallback-text">Twitter</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Pinterest"><i class="icon icon-pinterest"></i> <span class="icon__fallback-text">Pinterest</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Instagram"><i class="icon icon-instagram"></i> <span class="icon__fallback-text">Instagram</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Tumblr"><i class="icon icon-tumblr-alt"></i> <span class="icon__fallback-text">Tumblr</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on YouTube"><i class="icon icon-youtube"></i> <span class="icon__fallback-text">YouTube</span></a></li>
+                                        <li><a class="social-icons__link" href="#" target="_blank" title="Bootstrap 4 Template on Vimeo"><i class="icon icon-vimeo-alt"></i> <span class="icon__fallback-text">Vimeo</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -422,7 +424,7 @@
                                             </span>
                                         </p>
                                         <div class="product-single__description rte">
-                                            Belle Multipurpose Bootstrap 4 Html Template that will give you and your customers a smooth shopping experience which can be used for various kinds of stores such as fashion,...
+                                            Bootstrap 4 Html Template that will give you and your customers a smooth shopping experience which can be used for various kinds of stores such as fashion,...
                                         </div>
 
                                     <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data">
@@ -505,6 +507,148 @@
                 </div>
             </div>
             <!--End Quick View popup-->
+
+            @if (request()->routeIs('products.details'))
+                <div class="hide">
+                  <div id="sizechart">
+                    <h3>WOMEN'S BODY SIZING CHART</h3>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Size</th>
+                          <th>XS</th>
+                          <th>S</th>
+                          <th>M</th>
+                          <th>L</th>
+                          <th>XL</th>
+                        </tr>
+                        <tr>
+                          <td>Chest</td>
+                          <td>31" - 33"</td>
+                          <td>33" - 35"</td>
+                          <td>35" - 37"</td>
+                          <td>37" - 39"</td>
+                          <td>39" - 42"</td>
+                        </tr>
+                        <tr>
+                          <td>Waist</td>
+                          <td>24" - 26"</td>
+                          <td>26" - 28"</td>
+                          <td>28" - 30"</td>
+                          <td>30" - 32"</td>
+                          <td>32" - 35"</td>
+                        </tr>
+                        <tr>
+                          <td>Hip</td>
+                          <td>34" - 36"</td>
+                          <td>36" - 38"</td>
+                          <td>38" - 40"</td>
+                          <td>40" - 42"</td>
+                          <td>42" - 44"</td>
+                        </tr>
+                        <tr>
+                          <td>Regular inseam</td>
+                          <td>30"</td>
+                          <td>30½"</td>
+                          <td>31"</td>
+                          <td>31½"</td>
+                          <td>32"</td>
+                        </tr>
+                        <tr>
+                          <td>Long (Tall) Inseam</td>
+                          <td>31½"</td>
+                          <td>32"</td>
+                          <td>32½"</td>
+                          <td>33"</td>
+                          <td>33½"</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h3>MEN'S BODY SIZING CHART</h3>
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Size</th>
+                          <th>XS</th>
+                          <th>S</th>
+                          <th>M</th>
+                          <th>L</th>
+                          <th>XL</th>
+                          <th>XXL</th>
+                        </tr>
+                        <tr>
+                          <td>Chest</td>
+                          <td>33" - 36"</td>
+                          <td>36" - 39"</td>
+                          <td>39" - 41"</td>
+                          <td>41" - 43"</td>
+                          <td>43" - 46"</td>
+                          <td>46" - 49"</td>
+                        </tr>
+                        <tr>
+                          <td>Waist</td>
+                          <td>27" - 30"</td>
+                          <td>30" - 33"</td>
+                          <td>33" - 35"</td>
+                          <td>36" - 38"</td>
+                          <td>38" - 42"</td>
+                          <td>42" - 45"</td>
+                        </tr>
+                        <tr>
+                          <td>Hip</td>
+                          <td>33" - 36"</td>
+                          <td>36" - 39"</td>
+                          <td>39" - 41"</td>
+                          <td>41" - 43"</td>
+                          <td>43" - 46"</td>
+                          <td>46" - 49"</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div style="padding-left: 30px;"><img src="assets/images/size.jpg" alt=""></div>
+                  </div>
+            	</div>
+                <div class="hide">
+                	<div id="productInquiry">
+                    	<div class="contact-form form-vertical">
+                      <div class="page-title">
+                        <h3>Camelia Reversible Jacket</h3>
+                      </div>
+                      <form method="post" action="#" id="contact_form" class="contact-form">
+                        <input type="hidden" name="form_type" value="contact" />
+                        <input type="hidden" name="utf8" value="✓" />
+                        <div class="formFeilds">
+                          <input type="hidden"  name="contact[product name]" value="Camelia Reversible Jacket">
+                          <input type="hidden"  name="contact[product link]" value="/products/camelia-reversible-jacket-black-red">
+                          <div class="row">
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                              	<input type="text" id="ContactFormName" name="contact[name]" placeholder="Name"  value="" required>
+                              </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                              <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="Email"  autocapitalize="off" value="" required>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <input required type="tel" id="ContactFormPhone" name="contact[phone]" pattern="[0-9\-]*" placeholder="Phone Number"  value="">
+                            </div>
+                          </div>
+                          <div class="row">
+                          	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                          		<textarea required rows="10" id="ContactFormMessage" name="contact[body]" placeholder="Message" ></textarea>
+                          	</div>
+                          </div>
+                          <div class="row">
+                          	<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                          		<input type="submit" class="btn" value="Send Message">
+                            </div>
+                         </div>
+                        </div>
+                      </form>
+                    </div>
+                  	</div>
+                </div>
+            @endif
         </div>
 
 
@@ -519,6 +663,11 @@
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/lazysizes.js') }}"></script>
         <script src="{{ asset('assets/js/main.js') }}"></script>
+        <!-- Photoswipe Gallery -->
+        @if (request()->routeIs('products.details'))
+        <script src="{{ asset('assets/js/vendor/photoswipe.min.js') }}"></script>
+        <script src="{{ asset('assets/js/vendor/photoswipe-ui-default.min.js') }}"></script>
+        @endif
 
         <!--For Newsletter Popup-->
         <script>
@@ -555,6 +704,85 @@
             });
         </script>
         <!--End For Newsletter Popup-->
+
+        @if (request()->routeIs('products.details'))
+        <script>
+           $(function(){
+               var $pswp = $('.pswp')[0],
+                   image = [],
+                   getItems = function() {
+                       var items = [];
+                       $('.lightboximages a').each(function() {
+                           var $href   = $(this).attr('href'),
+                               $size   = $(this).data('size').split('x'),
+                               item = {
+                                   src : $href,
+                                   w: $size[0],
+                                   h: $size[1]
+                               }
+                               items.push(item);
+                       });
+                       return items;
+                   }
+               var items = getItems();
+
+               $.each(items, function(index, value) {
+                   image[index]     = new Image();
+                   image[index].src = value['src'];
+               });
+               $('.prlightbox').on('click', function (event) {
+                   event.preventDefault();
+
+                   var $index = $(".active-thumb").parent().attr('data-slick-index');
+                   $index++;
+                   $index = $index-1;
+
+                   var options = {
+                       index: $index,
+                       bgOpacity: 0.9,
+                       showHideOpacity: true
+                   }
+                   var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                   lightBox.init();
+               });
+           });
+        </script>
+
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
 
         @livewireScripts
     </body>
