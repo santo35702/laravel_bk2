@@ -125,8 +125,8 @@
                                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
                                     <li class="lvl1 parent dropdown"><a href="#">Pages <i class="anm anm-angle-down-l"></i></a>
                                         <ul class="dropdown">
-                                            <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-angle-right-l"></i></a></li>
-                                            <li><a href="compare-variant1.html" class="site-nav">Compare Product <i class="anm anm-angle-right-l"></i></a></li>
+                                            <li><a href="cart-variant1.html" class="site-nav">Cart Page </a></li>
+                                            <li><a href="compare-variant1.html" class="site-nav">Compare Product </a></li>
                                             <li><a href="checkout.html" class="site-nav">Checkout</a></li>
                                             <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
                                             <li><a href="{{ route('faq') }}" class="site-nav">FAQs</a></li>
@@ -218,8 +218,8 @@
                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
                     <li class="lvl1 parent megamenu"><a href="#">Pages <i class="anm anm-plus-l"></i></a>
                         <ul>
-                            <li><a href="cart-variant1.html" class="site-nav">Cart Page <i class="anm anm-plus-l"></i></a></li>
-                            <li><a href="compare-variant1.html" class="site-nav">Compare Product <i class="anm anm-plus-l"></i></a></li>
+                            <li><a href="cart-variant1.html" class="site-nav">Cart Page </a></li>
+                            <li><a href="compare-variant1.html" class="site-nav">Compare Product </a></li>
                             <li><a href="checkout.html" class="site-nav">Checkout</a></li>
                             <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
                             <li><a href="{{ route('faq') }}" class="site-nav">FAQs</a></li>
