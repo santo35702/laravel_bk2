@@ -25,7 +25,7 @@
         template-collection
     @elseif (request()->routeIs('products.details'))
         template-product
-    @elseif (request()->routeIs('about') | request()->routeIs('faq'))
+    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart'))
         page-template
     @endif">
         <div id="pre-loader">
