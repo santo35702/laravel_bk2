@@ -125,7 +125,6 @@
                                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
                                     <li class="lvl1 parent dropdown"><a href="#">Pages <i class="anm anm-angle-down-l"></i></a>
                                         <ul class="dropdown">
-                                            <li><a href="cart-variant1.html" class="site-nav">Cart Page </a></li>
                                             <li><a href="compare-variant1.html" class="site-nav">Compare Product </a></li>
                                             <li><a href="checkout.html" class="site-nav">Checkout</a></li>
                                             <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
@@ -194,7 +193,7 @@
                                         	<span class="label">Cart Subtotal:</span><span class="product-price"><span class="money">$748.00</span></span>
                                         </div>
                                          <div class="buttonSet text-center">
-                                            <a href="cart.html" class="btn btn-secondary btn--small">View Cart</a>
+                                            <a href="{{ route('cart') }}" class="btn btn-secondary btn--small">View Cart</a>
                                             <a href="checkout.html" class="btn btn-secondary btn--small">Checkout</a>
                                         </div>
                                     </div>
@@ -218,7 +217,6 @@
                     <li class="lvl1"><a href="{{ route('products.index') }}">Products </a></li>
                     <li class="lvl1 parent megamenu"><a href="#">Pages <i class="anm anm-plus-l"></i></a>
                         <ul>
-                            <li><a href="cart-variant1.html" class="site-nav">Cart Page </a></li>
                             <li><a href="compare-variant1.html" class="site-nav">Compare Product </a></li>
                             <li><a href="checkout.html" class="site-nav">Checkout</a></li>
                             <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
