@@ -13,6 +13,12 @@ use App\Http\Livewire\Frontend\WishlistPage;
 use App\Http\Livewire\Frontend\ContactUsPage;
 use App\Http\Livewire\Frontend\NotFoundPage;
 
+// For Admin__
+use App\Http\Livewire\Admin\AdminDashboardPage;
+
+// For Users__
+use App\Http\Livewire\User\UserDashboardPage;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,13 +63,13 @@ Route::get('/contact-us', ContactUsPage::class)->name('contact');
 Route::get('/404', NotFoundPage::class)->name('not_found');
 
 // Admin Route__
-Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function ()
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->name('admin.')->group(function ()
 {
-    // code...
+    Route::get('/dashboard', AdminDashboardPage::class)->name('dashboard');
 });
 
 // Users / Customers Router__
 Route::middleware(['auth:sanctum', 'verified'])->prefix('users')->name('users.')->group(function ()
 {
-    // return view('dashboard');
+    Route::get('/dashboard', UserDashboardPage::class)->name('dashboard');
 });
