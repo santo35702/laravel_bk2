@@ -28,9 +28,9 @@ use App\Http\Livewire\Frontend\NotFoundPage;
 //     return view('welcome');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 Route::get('/', HomePage::class)->name('home');
 
@@ -55,3 +55,15 @@ Route::get('/wishlist', WishlistPage::class)->name('wishlist');
 Route::get('/contact-us', ContactUsPage::class)->name('contact');
 
 Route::get('/404', NotFoundPage::class)->name('not_found');
+
+// Admin Route__
+Route::middleware(['auth:sanctum', 'verified'])->prefix('admin')->name('admin.')->group(function ()
+{
+    // code...
+});
+
+// Users / Customers Router__
+Route::middleware(['auth:sanctum', 'verified'])->prefix('users')->name('users.')->group(function ()
+{
+    // return view('dashboard');
+});
