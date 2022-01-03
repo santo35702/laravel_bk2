@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Frontend\Product;
 
 use Livewire\Component;
+use App\Models\Product;
 
 class IndexPage extends Component
 {
     public function render()
     {
-        return view('livewire.frontend.product.index-page')->layout('layouts.base');
+        $products = Product::paginate(20);
+        return view('livewire.frontend.product.index-page', ['products' => $products])->layout('layouts.base');
     }
 }
