@@ -86,7 +86,11 @@
                                 </span>
                                 <ul class="customer-links list-inline">
                                     @auth
-                                        <li><a href="">Account</a></li>
+                                        @if (Auth::user()->utype === 'ADM')
+                                            <li><a href="">Account</a></li>
+                                        @else
+                                            <li><a href="">Account</a></li>
+                                        @endif
                                         <li><a href="">Logout</a></li>
                                     @else
                                         <li><a href="{{ route('login') }}">Login</a></li>
