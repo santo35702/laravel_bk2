@@ -25,8 +25,10 @@
         template-collection
     @elseif (request()->routeIs('products.details'))
         template-product
-    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare') || request()->routeIs('wishlist'))
-        page-template
+    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare') || request()->routeIs('wishlist') || request()->routeIs('contact'))
+        page-template @if (request()->routeIs('contact'))
+            contact-template
+        @endif
     @endif">
         <div id="pre-loader">
             <img src="{{ asset('assets/images/loader.gif') }}" alt="Loading..." />
@@ -127,7 +129,6 @@
                                         <ul class="dropdown">
                                             <li><a href="{{ route('compare') }}" class="site-nav">Compare Product </a></li>
                                             <li><a href="{{ route('checkout') }}" class="site-nav">Checkout</a></li>
-                                            <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
                                             <li><a href="{{ route('faq') }}" class="site-nav">FAQs</a></li>
                                             <li><a href="404.html" class="site-nav">404</a></li>
                                         </ul>
@@ -141,6 +142,7 @@
                                             <li><a href="blog-article.html" class="site-nav">Article</a></li>
                                         </ul>
                                     </li>
+                                    <li class="lvl1"><a href="{{ route('contact') }}">Contact Us </a></li>
                                 </ul>
                             </nav>
                             <!--End Desktop Menu-->
