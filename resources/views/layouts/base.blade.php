@@ -25,9 +25,12 @@
         template-collection
     @elseif (request()->routeIs('products.details'))
         template-product
-    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare') || request()->routeIs('wishlist') || request()->routeIs('contact'))
+    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare') || request()->routeIs('wishlist')
+     || request()->routeIs('contact') || request()->routeIs('not_found'))
         page-template @if (request()->routeIs('contact'))
             contact-template
+        @elseif (request()->routeIs('not_found'))
+            lookbook-template error-page
         @endif
     @endif">
         <div id="pre-loader">
@@ -130,7 +133,7 @@
                                             <li><a href="{{ route('compare') }}" class="site-nav">Compare Product </a></li>
                                             <li><a href="{{ route('checkout') }}" class="site-nav">Checkout</a></li>
                                             <li><a href="{{ route('faq') }}" class="site-nav">FAQs</a></li>
-                                            <li><a href="404.html" class="site-nav">404</a></li>
+                                            <li><a href="{{ route('not_found') }}" class="site-nav">404</a></li>
                                         </ul>
                                     </li>
                                     <li class="lvl1 parent dropdown"><a href="#">Blog <i class="anm anm-angle-down-l"></i></a>
@@ -221,9 +224,8 @@
                         <ul>
                             <li><a href="{{ route('compare') }}" class="site-nav">Compare Product </a></li>
                             <li><a href="{{ route('checkout') }}" class="site-nav">Checkout</a></li>
-                            <li><a href="contact-us.html" class="site-nav">Contact Us</a></li>
                             <li><a href="{{ route('faq') }}" class="site-nav">FAQs</a></li>
-                            <li><a href="404.html" class="site-nav">404</a></li>
+                            <li><a href="{{ route('not_found') }}" class="site-nav">404</a></li>
                         </ul>
                     </li>
                     <li class="lvl1 parent megamenu"><a href="blog-left-sidebar.html">Blog <i class="anm anm-plus-l"></i></a>
@@ -235,6 +237,7 @@
                             <li><a href="blog-article.html" class="site-nav">Article</a></li>
                         </ul>
                     </li>
+                    <li class="lvl1"><a href="{{ route('contact') }}">Contact Us </a></li>
                 </ul>
             </div>
             <!--End Mobile Menu-->
@@ -657,6 +660,9 @@
         <script src="{{ asset('assets/js/vendor/modernizr-3.6.0.min.js') }}"></script>
         <script src="{{ asset('assets/js/vendor/jquery.cookie.js') }}"></script>
         <script src="{{ asset('assets/js/vendor/wow.min.js') }}"></script>
+        @if (request()->routeIs('not_found'))
+            <script src="{{ asset('assets/js/vendor/masonry.js') }}" type="text/javascript"></script>
+        @endif
         <!-- Including Javascript -->
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/plugins.js') }}"></script>
