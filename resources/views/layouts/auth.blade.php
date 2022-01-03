@@ -19,7 +19,12 @@
 
         @livewireStyles
     </head>
-    <body class="hold-transition login-page">
+    <body class="hold-transition @if (request()->routeIs('login'))
+        login-page
+    @elseif (request()->routeIs('register'))
+        register-page
+    @endif">
+    
         {{ $slot }}
 
         <!-- jQuery -->
