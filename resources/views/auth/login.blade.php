@@ -66,9 +66,11 @@
                     <a href="{{ route('password.request') }}">Forgot your password?</a>
                 </p>
                 @endif
+                @if (Route::has('register'))
                 <p class="mb-0">
-                    <a href="#" class="text-center">Register a new membership</a>
+                    <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
                 </p>
+                @endif
             </div>
             <!-- /.card-body -->
         </div>
