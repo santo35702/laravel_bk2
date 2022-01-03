@@ -11,6 +11,7 @@ use App\Http\Livewire\Frontend\CheckoutPage;
 use App\Http\Livewire\Frontend\ComparePage;
 use App\Http\Livewire\Frontend\WishlistPage;
 use App\Http\Livewire\Frontend\ContactUsPage;
+use App\Http\Livewire\Frontend\NotFoundPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,5 @@ Route::get('/compare', ComparePage::class)->name('compare');
 Route::get('/wishlist', WishlistPage::class)->name('wishlist');
 
 Route::get('/contact-us', ContactUsPage::class)->name('contact');
+
+Route::get('/404', NotFoundPage::class)->name('not_found');
