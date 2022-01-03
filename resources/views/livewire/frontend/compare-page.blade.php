@@ -2,7 +2,7 @@
     <!--Page Title-->
     <div class="page section-header text-center">
         <div class="page-title">
-            <div class="wrapper"><h1 class="page-width">Compare Product variant1</h1></div>
+            <div class="wrapper"><h1 class="page-width">Compare Product</h1></div>
         </div>
     </div>
     <!--End Page Title-->
@@ -44,7 +44,7 @@
                             </tr>
                             <tr>
                                 <th valign="middle" class="product-name">Product Image</th>
-                                <td valign="middle" class="item-row"><img src="assets/images/product-images/product-image16.jpg" alt="" class="featured-image">
+                                <td valign="middle" class="item-row"><img src="{{ asset('assets/images/product-images/product-image1.jpg') }}" alt="" class="featured-image">
                                 <div class="product-price product_price"><span>$89,00</span></div>
                                     <form class="variants clearfix">
                                         <input type="hidden">
@@ -52,7 +52,7 @@
                                     </form>
                                     <p class="grid-link__title hidden">Cut Dress</p>
                                 </td>
-                                <td class="item-row"><img src="assets/images/product-images/product-image18.jpg" alt="" class="featured-image">
+                                <td class="item-row"><img src="{{ asset('assets/images/product-images/product-image1.jpg') }}" alt="" class="featured-image">
                                 <div class="product-price product_price"><span>$89,00</span></div>
                                     <form class="variants clearfix">
                                         <input type="hidden">
