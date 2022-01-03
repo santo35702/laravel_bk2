@@ -25,7 +25,7 @@
         template-collection
     @elseif (request()->routeIs('products.details'))
         template-product
-    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare'))
+    @elseif (request()->routeIs('about') || request()->routeIs('faq') || request()->routeIs('cart') || request()->routeIs('checkout') || request()->routeIs('compare') || request()->routeIs('wishlist'))
         page-template
     @endif">
         <div id="pre-loader">
@@ -89,7 +89,7 @@
                                             <li><a href="{{ route('register') }}">Create Account</a></li>
                                         @endif
                                     @endauth
-                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="{{ route('wishlist') }}">Wishlist</a></li>
                                 </ul>
                             @endif
                         </div>

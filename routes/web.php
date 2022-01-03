@@ -9,6 +9,7 @@ use App\Http\Livewire\Frontend\FAQPage;
 use App\Http\Livewire\Frontend\CartPage;
 use App\Http\Livewire\Frontend\CheckoutPage;
 use App\Http\Livewire\Frontend\ComparePage;
+use App\Http\Livewire\Frontend\WishlistPage;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,5 @@ Route::get('/cart', CartPage::class)->name('cart');
 Route::get('/checkout', CheckoutPage::class)->name('checkout');
 
 Route::get('/compare', ComparePage::class)->name('compare');
+
+Route::get('/wishlist', WishlistPage::class)->name('wishlist');
