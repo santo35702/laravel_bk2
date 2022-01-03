@@ -671,8 +671,8 @@
         <script src="{{ asset('assets/js/main.js') }}"></script>
         <!-- Photoswipe Gallery -->
         @if (request()->routeIs('products.details'))
-        <script src="{{ asset('assets/js/vendor/photoswipe.min.js') }}"></script>
-        <script src="{{ asset('assets/js/vendor/photoswipe-ui-default.min.js') }}"></script>
+            <script src="{{ asset('assets/js/vendor/photoswipe.min.js') }}"></script>
+            <script src="{{ asset('assets/js/vendor/photoswipe-ui-default.min.js') }}"></script>
         @endif
 
         <!--For Newsletter Popup-->
