@@ -125,23 +125,23 @@
                             <div class="list list-sidebar-products">
                                 <div class="grid">
                                     @foreach ($popular_products as $key)
-                                    <div class="grid__item">
-                                        <div class="mini-list-item">
-                                            <div class="mini-view_image">
-                                                <a class="grid-view-item__link" href="{{ route('products.details') }}">
-                                                    <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" />
-                                                </a>
-                                            </div>
-                                            <div class="details">
-                                                <a class="grid-view-item__title text-capitalize" href="{{ route('products.details') }}">{{ $key->title }}</a>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product-price__price">
-                                                        <span class="money">${{ $key->regular_price }}</span>
-                                                    </span>
+                                        <div class="grid__item">
+                                            <div class="mini-list-item">
+                                                <div class="mini-view_image">
+                                                    <a class="grid-view-item__link" href="{{ route('products.details', $key->slug) }}">
+                                                        <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" />
+                                                    </a>
+                                                </div>
+                                                <div class="details">
+                                                    <a class="grid-view-item__title text-capitalize" href="{{ route('products.details', $key->slug) }}">{{ $key->title }}</a>
+                                                    <div class="grid-view-item__meta">
+                                                        <span class="product-price__price">
+                                                            <span class="money">${{ $key->regular_price }}</span>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -254,7 +254,7 @@
                                     <div class="list-view-item__image-column">
                                         <div class="list-view-item__image-wrapper">
                                             <!-- Image -->
-                                            <a href="{{ route('products.details') }}">
+                                            <a href="{{ route('products.details', $key->slug) }}">
                                                 <img class="list-view-item__image blur-up lazyload" data-src="{{ asset('assets/images/product-images/' . $key->image ) }}" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" title="{{ $key->title }}">
                                             </a>
                                             <!-- End Image -->
@@ -262,7 +262,7 @@
                                     </div>
                                     <div class="list-view-item__title-column">
                                         <div class="h4 grid-view-item__title text-capitalize">
-                                            <a href="{{ route('products.details') }}">{{ $key->title }}</a>
+                                            <a href="{{ route('products.details', $key->slug) }}">{{ $key->title }}</a>
                                         </div>
                                         <!-- Product Review -->
                                         <p class="product-review"><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star"></i><i class="font-13 fa fa-star-o"></i><i class="font-13 fa fa-star-o"></i></p>
