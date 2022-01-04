@@ -10,6 +10,7 @@ class IndexPage extends Component
     public function render()
     {
         $products = Product::paginate(20);
-        return view('livewire.frontend.product.index-page', ['products' => $products])->layout('layouts.base');
+        $popular_products = Product::inRandomOrder()->limit(5)->get();
+        return view('livewire.frontend.product.index-page', ['products' => $products, 'popular_products' => $popular_products])->layout('layouts.base');
     }
 }

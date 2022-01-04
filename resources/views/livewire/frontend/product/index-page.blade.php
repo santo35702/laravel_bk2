@@ -15,32 +15,18 @@
                 <div class="closeFilter d-block d-md-none d-lg-none"><i class="icon icon anm anm-times-l"></i></div>
                 <div class="sidebar_tags">
                     <!--Categories-->
-                    <div class="sidebar_widget categories filter-widget">
-                        <div class="widget-title"><h2>Categories</h2></div>
-                        <div class="widget-content">
-                            <ul class="sidebar_categories">
-                                <li class="level1 sub-level"><a href="#;" class="site-nav">Clothing</a>
-                                    <ul class="sublinks">
-                                        <li class="level2"><a href="#;" class="site-nav">Men</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">Women</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">View All Clothing</a></li>
-                                    </ul>
-                                </li>
-                                <li class="level1 sub-level"><a href="#;" class="site-nav">Jewellery</a>
-                                    <ul class="sublinks">
-                                        <li class="level2"><a href="#;" class="site-nav">Ring</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">Neckalses</a></li>
-                                        <li class="level2"><a href="#;" class="site-nav">View All Jewellery</a></li>
-                                    </ul>
-                                </li>
-                                <li class="lvl-1"><a href="#;" class="site-nav">Shoes</a></li>
-                                <li class="lvl-1"><a href="#;" class="site-nav">Accessories</a></li>
-                                <li class="lvl-1"><a href="#;" class="site-nav">Collections</a></li>
-                                <li class="lvl-1"><a href="#;" class="site-nav">Sale</a></li>
-                                <li class="lvl-1"><a href="#;" class="site-nav">Page</a></li>
-                            </ul>
+                    @if (DB::table('categories')->get()->count() > 0)
+                        <div class="sidebar_widget categories filter-widget">
+                            <div class="widget-title"><h2>Categories</h2></div>
+                            <div class="widget-content">
+                                <ul class="sidebar_categories text-capitalize">
+                                    @foreach (DB::table('categories')->orderBy('name')->get() as $key)
+                                        <li class="lvl-1"><a href="#;" class="site-nav">{{ $key->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                     <!--Categories-->
                     <!--Price Filter-->
                     <div class="sidebar_widget filterBox filter-widget">
@@ -110,24 +96,24 @@
                         <div class="widget-title"><h2>Brands</h2></div>
                         <ul>
                             <li>
-                              <input type="checkbox" value="allen-vela" id="check1">
-                              <label for="check1"><span><span></span></span>Allen Vela</label>
+                                <input type="checkbox" value="allen-vela" id="check1">
+                                <label for="check1"><span><span></span></span>Allen Vela</label>
                             </li>
                             <li>
-                              <input type="checkbox" value="oxymat" id="check3">
-                              <label for="check3"><span><span></span></span>Oxymat</label>
+                                <input type="checkbox" value="oxymat" id="check3">
+                                <label for="check3"><span><span></span></span>Oxymat</label>
                             </li>
                             <li>
-                              <input type="checkbox" value="vanelas" id="check4">
-                              <label for="check4"><span><span></span></span>Vanelas</label>
+                                <input type="checkbox" value="vanelas" id="check4">
+                                <label for="check4"><span><span></span></span>Vanelas</label>
                             </li>
                             <li>
-                              <input type="checkbox" value="pagini" id="check5">
-                              <label for="check5"><span><span></span></span>Pagini</label>
+                                <input type="checkbox" value="pagini" id="check5">
+                                <label for="check5"><span><span></span></span>Pagini</label>
                             </li>
                             <li>
-                              <input type="checkbox" value="monark" id="check6">
-                              <label for="check6"><span><span></span></span>Monark</label>
+                                <input type="checkbox" value="monark" id="check6">
+                                <label for="check6"><span><span></span></span>Monark</label>
                             </li>
                         </ul>
                     </div>
@@ -137,44 +123,27 @@
                         <div class="widget-title"><h2>Popular Products</h2></div>
                         <div class="widget-content">
                             <div class="list list-sidebar-products">
-                              <div class="grid">
-                                <div class="grid__item">
-                                  <div class="mini-list-item">
-                                    <div class="mini-view_image">
-                                        <a class="grid-view-item__link" href="{{ route('products.details') }}">
-                                            <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/mini-product-img.jpg') }}" alt="" />
-                                        </a>
+                                <div class="grid">
+                                    @foreach ($popular_products as $key)
+                                    <div class="grid__item">
+                                        <div class="mini-list-item">
+                                            <div class="mini-view_image">
+                                                <a class="grid-view-item__link" href="{{ route('products.details') }}">
+                                                    <img class="grid-view-item__image" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" />
+                                                </a>
+                                            </div>
+                                            <div class="details">
+                                                <a class="grid-view-item__title text-capitalize" href="{{ route('products.details') }}">{{ $key->title }}</a>
+                                                <div class="grid-view-item__meta">
+                                                    <span class="product-price__price">
+                                                        <span class="money">${{ $key->regular_price }}</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="details"> <a class="grid-view-item__title" href="{{ route('products.details') }}">Cena Skirt</a>
-                                      <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$173.60</span></span></div>
-                                    </div>
-                                  </div>
+                                    @endforeach
                                 </div>
-                                <div class="grid__item">
-                                  <div class="mini-list-item">
-                                    <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="assets/images/product-images/mini-product-img1.jpg" alt="" /></a> </div>
-                                    <div class="details"> <a class="grid-view-item__title" href="#">Block Button Up</a>
-                                      <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$378.00</span></span></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="grid__item">
-                                  <div class="mini-list-item">
-                                    <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="assets/images/product-images/mini-product-img2.jpg" alt="" /></a> </div>
-                                    <div class="details"> <a class="grid-view-item__title" href="#">Balda Button Pant</a>
-                                      <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$278.60</span></span></div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="grid__item">
-                                  <div class="mini-list-item">
-                                    <div class="mini-view_image"> <a class="grid-view-item__link" href="#"><img class="grid-view-item__image" src="assets/images/product-images/mini-product-img3.jpg" alt="" /></a> </div>
-                                    <div class="details"> <a class="grid-view-item__title" href="#">Border Dress in Black/Silver</a>
-                                      <div class="grid-view-item__meta"><span class="product-price__price"><span class="money">$228.00</span></span></div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
                             </div>
                         </div>
                     </div>
@@ -192,40 +161,41 @@
                     <!--end Information-->
                     <!--Product Tags-->
                     <div class="sidebar_widget">
-                      <div class="widget-title">
-                        <h2>Product Tags</h2>
-                      </div>
-                      <div class="widget-content">
-                        <ul class="product-tags">
-                          <li><a href="#" title="Show products matching tag $100 - $400">$100 - $400</a></li>
-                          <li><a href="#" title="Show products matching tag $400 - $600">$400 - $600</a></li>
-                          <li><a href="#" title="Show products matching tag $600 - $800">$600 - $800</a></li>
-                          <li><a href="#" title="Show products matching tag Above $800">Above $800</a></li>
-                          <li><a href="#" title="Show products matching tag Allen Vela">Allen Vela</a></li>
-                          <li><a href="#" title="Show products matching tag Black">Black</a></li>
-                          <li><a href="#" title="Show products matching tag Blue">Blue</a></li>
-                          <li><a href="#" title="Show products matching tag Cantitate">Cantitate</a></li>
-                          <li><a href="#" title="Show products matching tag Famiza">Famiza</a></li>
-                          <li><a href="#" title="Show products matching tag Gray">Gray</a></li>
-                          <li><a href="#" title="Show products matching tag Green">Green</a></li>
-                          <li><a href="#" title="Show products matching tag Hot">Hot</a></li>
-                          <li><a href="#" title="Show products matching tag jean shop">jean shop</a></li>
-                          <li><a href="#" title="Show products matching tag jesse kamm">jesse kamm</a></li>
-                          <li><a href="#" title="Show products matching tag L">L</a></li>
-                          <li><a href="#" title="Show products matching tag Lardini">Lardini</a></li>
-                          <li><a href="#" title="Show products matching tag lareida">lareida</a></li>
-                          <li><a href="#" title="Show products matching tag Lirisla">Lirisla</a></li>
-                          <li><a href="#" title="Show products matching tag M">M</a></li>
-                          <li><a href="#" title="Show products matching tag mini-dress">mini-dress</a></li>
-                          <li><a href="#" title="Show products matching tag Monark">Monark</a></li>
-                          <li><a href="#" title="Show products matching tag Navy">Navy</a></li>
-                          <li><a href="#" title="Show products matching tag new">new</a></li>
-                          <li><a href="#" title="Show products matching tag new arrivals">new arrivals</a></li>
-                          <li><a href="#" title="Show products matching tag Orange">Orange</a></li>
-                          <li><a href="#" title="Show products matching tag oxford">oxford</a></li>
-                          <li><a href="#" title="Show products matching tag Oxymat">Oxymat</a></li>
-                        </ul>
-                        <span class="btn btn--small btnview">View all</span> </div>
+                        <div class="widget-title">
+                            <h2>Product Tags</h2>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="product-tags">
+                                <li><a href="#" title="Show products matching tag $100 - $400">$100 - $400</a></li>
+                                <li><a href="#" title="Show products matching tag $400 - $600">$400 - $600</a></li>
+                                <li><a href="#" title="Show products matching tag $600 - $800">$600 - $800</a></li>
+                                <li><a href="#" title="Show products matching tag Above $800">Above $800</a></li>
+                                <li><a href="#" title="Show products matching tag Allen Vela">Allen Vela</a></li>
+                                <li><a href="#" title="Show products matching tag Black">Black</a></li>
+                                <li><a href="#" title="Show products matching tag Blue">Blue</a></li>
+                                <li><a href="#" title="Show products matching tag Cantitate">Cantitate</a></li>
+                                <li><a href="#" title="Show products matching tag Famiza">Famiza</a></li>
+                                <li><a href="#" title="Show products matching tag Gray">Gray</a></li>
+                                <li><a href="#" title="Show products matching tag Green">Green</a></li>
+                                <li><a href="#" title="Show products matching tag Hot">Hot</a></li>
+                                <li><a href="#" title="Show products matching tag jean shop">jean shop</a></li>
+                                <li><a href="#" title="Show products matching tag jesse kamm">jesse kamm</a></li>
+                                <li><a href="#" title="Show products matching tag L">L</a></li>
+                                <li><a href="#" title="Show products matching tag Lardini">Lardini</a></li>
+                                <li><a href="#" title="Show products matching tag lareida">lareida</a></li>
+                                <li><a href="#" title="Show products matching tag Lirisla">Lirisla</a></li>
+                                <li><a href="#" title="Show products matching tag M">M</a></li>
+                                <li><a href="#" title="Show products matching tag mini-dress">mini-dress</a></li>
+                                <li><a href="#" title="Show products matching tag Monark">Monark</a></li>
+                                <li><a href="#" title="Show products matching tag Navy">Navy</a></li>
+                                <li><a href="#" title="Show products matching tag new">new</a></li>
+                                <li><a href="#" title="Show products matching tag new arrivals">new arrivals</a></li>
+                                <li><a href="#" title="Show products matching tag Orange">Orange</a></li>
+                                <li><a href="#" title="Show products matching tag oxford">oxford</a></li>
+                                <li><a href="#" title="Show products matching tag Oxymat">Oxymat</a></li>
+                            </ul>
+                            <span class="btn btn--small btnview">View all</span>
+                        </div>
                     </div>
                     <!--end Product Tags-->
                 </div>
@@ -249,7 +219,7 @@
                                     <a href="{{ route('products.index') }}" title="Grid View" class="change-view change-view--active">
                                         <img src="{{ asset('assets/images/grid.jpg') }}" alt="Grid" />
                                     </a>
-                                    <a href="shop-listview.html" title="List View" class="change-view">
+                                    <a href="{{ route('products.list') }}" title="List View" class="change-view">
                                         <img src="{{ asset('assets/images/list.jpg') }}" alt="List" />
                                     </a>
                                 </div>
@@ -327,7 +297,7 @@
                                         <!--start product details -->
                                         <div class="product-details text-center">
                                             <!-- product name -->
-                                            <div class="product-name">
+                                            <div class="product-name text-capitalize">
                                                 <a href="{{ route('products.details') }}">{{ $key->title }}</a>
                                             </div>
                                             <!-- End product name -->
