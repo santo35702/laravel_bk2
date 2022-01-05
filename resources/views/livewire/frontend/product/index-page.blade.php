@@ -272,9 +272,10 @@
                                             <!-- countdown end -->
 
                                             <!-- Start product button -->
-                                            <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
+                                            <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                            {{-- <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
                                                 <button class="btn btn-addto-cart" type="button">Select Options</button>
-                                            </form>
+                                            </form> --}}
                                             <div class="button-set">
                                                 <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
                                                     <i class="icon anm anm-search-plus-r"></i>
