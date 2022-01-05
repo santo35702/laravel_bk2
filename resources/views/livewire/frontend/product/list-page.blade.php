@@ -276,9 +276,10 @@
                                             <span class="product-price__price product-price__sale"><span class="money">${{ $key->sale_price }}</span></span>
                                         </p>
                                         <!-- End Price -->
-                                        <form class="variants" action="#">
+                                        <a href="#" class="variants btn btn--small" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                        {{-- <form class="variants" action="#">
                                             <button class="btn btn--small" type="button">Select Options</button>
-                                        </form>
+                                        </form> --}}
                                     </div>
                                 </div>
                             @endforeach

@@ -64,7 +64,8 @@
                                 </span>
                             </p>
                             <div class="orderMsg" data-user="23" data-time="24">
-                                <img src="{{ asset('assets/images/order-icon.jpg') }}" alt="" /> <strong class="items">5</strong> sold in last <strong class="time">26</strong> hours
+                                <img src="{{ asset('assets/images/order-icon.jpg') }}" alt="" />
+                                <strong class="items">5</strong> sold in last <strong class="time">26</strong> hours
                             </div>
                         </div>
                         <div class="product-single__description rte">
@@ -139,9 +140,10 @@
                                     </div>
                                 </div>
                                 <div class="product-form__item--submit">
-                                    <button type="button" name="add" class="btn product-form__cart-submit">
+                                    <a href="#" class="btn product-form__cart-submit" wire:click.prevent="AddToCart({{ $product->id }}, '{{ $product->title }}', {{ $product->regular_price }})">Add To Cart</a>
+                                    {{-- <button type="button" name="add" class="btn product-form__cart-submit">
                                         <span>Add to cart</span>
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <div class="shopify-payment-button" data-shopify="payment-button">
                                     <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded">Buy it now</button>
@@ -313,98 +315,103 @@
 
                     <div id="tab3" class="tab-content">
                         <h3>WOMEN'S BODY SIZING CHART</h3>
-                        <table class="table table-hover">
-                          <tbody>
-                            <tr>
-                              <th>Size</th>
-                              <th>XS</th>
-                              <th>S</th>
-                              <th>M</th>
-                              <th>L</th>
-                              <th>XL</th>
-                            </tr>
-                            <tr>
-                              <td>Chest</td>
-                              <td>31" - 33"</td>
-                              <td>33" - 35"</td>
-                              <td>35" - 37"</td>
-                              <td>37" - 39"</td>
-                              <td>39" - 42"</td>
-                            </tr>
-                            <tr>
-                              <td>Waist</td>
-                              <td>24" - 26"</td>
-                              <td>26" - 28"</td>
-                              <td>28" - 30"</td>
-                              <td>30" - 32"</td>
-                              <td>32" - 35"</td>
-                            </tr>
-                            <tr>
-                              <td>Hip</td>
-                              <td>34" - 36"</td>
-                              <td>36" - 38"</td>
-                              <td>38" - 40"</td>
-                              <td>40" - 42"</td>
-                              <td>42" - 44"</td>
-                            </tr>
-                            <tr>
-                              <td>Regular inseam</td>
-                              <td>30"</td>
-                              <td>30½"</td>
-                              <td>31"</td>
-                              <td>31½"</td>
-                              <td>32"</td>
-                            </tr>
-                            <tr>
-                              <td>Long (Tall) Inseam</td>
-                              <td>31½"</td>
-                              <td>32"</td>
-                              <td>32½"</td>
-                              <td>33"</td>
-                              <td>33½"</td>
-                            </tr>
-                          </tbody>
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">XS</th>
+                                    <th scope="col">S</th>
+                                    <th scope="col">M</th>
+                                    <th scope="col">L</th>
+                                    <th scope="col">XL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Chest</td>
+                                    <td>31" - 33"</td>
+                                    <td>33" - 35"</td>
+                                    <td>35" - 37"</td>
+                                    <td>37" - 39"</td>
+                                    <td>39" - 42"</td>
+                                </tr>
+                                <tr>
+                                    <td>Waist</td>
+                                    <td>24" - 26"</td>
+                                    <td>26" - 28"</td>
+                                    <td>28" - 30"</td>
+                                    <td>30" - 32"</td>
+                                    <td>32" - 35"</td>
+                                </tr>
+                                <tr>
+                                    <td>Hip</td>
+                                    <td>34" - 36"</td>
+                                    <td>36" - 38"</td>
+                                    <td>38" - 40"</td>
+                                    <td>40" - 42"</td>
+                                    <td>42" - 44"</td>
+                                </tr>
+                                <tr>
+                                    <td>Regular inseam</td>
+                                    <td>30"</td>
+                                    <td>30½"</td>
+                                    <td>31"</td>
+                                    <td>31½"</td>
+                                    <td>32"</td>
+                                </tr>
+                                <tr>
+                                    <td>Long (Tall) Inseam</td>
+                                    <td>31½"</td>
+                                    <td>32"</td>
+                                    <td>32½"</td>
+                                    <td>33"</td>
+                                    <td>33½"</td>
+                                </tr>
+                            </tbody>
                         </table>
+
                         <h3>MEN'S BODY SIZING CHART</h3>
-                        <table>
-                          <tbody>
-                            <tr>
-                              <th>Size</th>
-                              <th>XS</th>
-                              <th>S</th>
-                              <th>M</th>
-                              <th>L</th>
-                              <th>XL</th>
-                              <th>XXL</th>
-                            </tr>
-                            <tr>
-                              <td>Chest</td>
-                              <td>33" - 36"</td>
-                              <td>36" - 39"</td>
-                              <td>39" - 41"</td>
-                              <td>41" - 43"</td>
-                              <td>43" - 46"</td>
-                              <td>46" - 49"</td>
-                            </tr>
-                            <tr>
-                              <td>Waist</td>
-                              <td>27" - 30"</td>
-                              <td>30" - 33"</td>
-                              <td>33" - 35"</td>
-                              <td>36" - 38"</td>
-                              <td>38" - 42"</td>
-                              <td>42" - 45"</td>
-                            </tr>
-                            <tr>
-                              <td>Hip</td>
-                              <td>33" - 36"</td>
-                              <td>36" - 39"</td>
-                              <td>39" - 41"</td>
-                              <td>41" - 43"</td>
-                              <td>43" - 46"</td>
-                              <td>46" - 49"</td>
-                            </tr>
-                          </tbody>
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">XS</th>
+                                    <th scope="col">S</th>
+                                    <th scope="col">M</th>
+                                    <th scope="col">L</th>
+                                    <th scope="col">XL</th>
+                                    <th scope="col">XXL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Chest</td>
+                                    <td>33" - 36"</td>
+                                    <td>36" - 39"</td>
+                                    <td>39" - 41"</td>
+                                    <td>41" - 43"</td>
+                                    <td>43" - 46"</td>
+                                    <td>46" - 49"</td>
+                                </tr>
+                                <tr>
+                                    <td>Waist</td>
+                                    <td>27" - 30"</td>
+                                    <td>30" - 33"</td>
+                                    <td>33" - 35"</td>
+                                    <td>36" - 38"</td>
+                                    <td>38" - 42"</td>
+                                    <td>42" - 45"</td>
+                                </tr>
+                                <tr>
+                                    <td>Hip</td>
+                                    <td>33" - 36"</td>
+                                    <td>36" - 39"</td>
+                                    <td>39" - 41"</td>
+                                    <td>41" - 43"</td>
+                                    <td>43" - 46"</td>
+                                    <td>46" - 49"</td>
+                                </tr>
+                            </tbody>
                         </table>
                         <div class="text-center">
                             <img src="{{ asset('assets/images/size.jpg') }}" alt="" />
@@ -424,316 +431,314 @@
 
             <!--Related Product Slider-->
             @if ($related_products->count() > 0)
-            <div class="related-product grid-products">
-                <header class="section-header">
-                    <h2 class="section-header__title text-center h2"><span>Related Products</span></h2>
-                    <p class="sub-heading">You can stop autoplay, increase/decrease aniamtion speed and number of grid to show and products from store admin.</p>
-                </header>
-                <div class="productPageSlider">
-                    @foreach ($related_products as $key)
-                        <div class="col-12 item">
-                            <!-- start product image -->
-                            <div class="product-image">
+                <div class="related-product grid-products">
+                    <header class="section-header">
+                        <h2 class="section-header__title text-center h2"><span>Related Products</span></h2>
+                        <p class="sub-heading">You can stop autoplay, increase/decrease aniamtion speed and number of grid to show and products from store admin.</p>
+                    </header>
+                    <div class="productPageSlider">
+                        @foreach ($related_products as $key)
+                            <div class="col-12 item">
                                 <!-- start product image -->
-                                <a href="{{ route('products.details', $key->slug) }}">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="{{ asset('assets/images/product-images/' . $key->image ) }}" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" title="{{ $key->title }}">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" alt="{{ $key->title }}" title="{{ $key->title }}">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    <div class="product-labels rectangular"><span class="lbl pr-label3">Popular</span><span class="lbl on-sale">Sale</span><span class="lbl on-sale">-16%</span><span class="lbl pr-label2">Hot</span> <span class="lbl pr-label1">new</span></div>
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-
-                                <!-- Start product button -->
-                                <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
-                                    <button class="btn btn-addto-cart" type="button">Select Options</button>
-                                </form>
-                                <div class="button-set">
-                                    <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
-                                        <i class="icon anm anm-search-plus-r"></i>
+                                <div class="product-image">
+                                    <!-- start product image -->
+                                    <a href="{{ route('products.details', $key->slug) }}">
+                                        <!-- image -->
+                                        <img class="primary blur-up lazyload" data-src="{{ asset('assets/images/product-images/' . $key->image ) }}" src="{{ asset('assets/images/product-images/' . $key->image ) }}" alt="{{ $key->title }}" title="{{ $key->title }}">
+                                        <!-- End image -->
+                                        <!-- Hover image -->
+                                        <img class="hover blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" alt="{{ $key->title }}" title="{{ $key->title }}">
+                                        <!-- End hover image -->
+                                        <!-- product label -->
+                                        <div class="product-labels rectangular"><span class="lbl pr-label3">Popular</span><span class="lbl on-sale">Sale</span><span class="lbl on-sale">-16%</span><span class="lbl pr-label2">Hot</span> <span class="lbl pr-label1">new</span></div>
+                                        <!-- End product label -->
                                     </a>
-                                    <div class="wishlist-btn">
-                                        <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
-                                            <i class="icon anm anm-heart-l"></i>
-                                        </a>
-                                    </div>
-                                    <div class="compare-btn">
-                                        <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
-                                            <i class="icon anm anm-random-r"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- end product button -->
-                            </div>
-                            <!-- end product image -->
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name text-capitalize">
-                                    <a href="{{ route('products.details', $key->slug) }}">{{ $key->title }}</a>
-                                </div>
-                                <!-- End product name -->
-                                <!-- product price -->
-                                <div class="product-price">
-                                    <span class="old-price">${{ $key->regular_price }}</span>
-                                    <span class="price">${{ $key->sale_price }}</span>
-                                </div>
-                                <!-- End product price -->
+                                    <!-- end product image -->
 
-                                <div class="product-review">
-                                    <i class="font-13 fa fa-star"></i>
-                                    <i class="font-13 fa fa-star"></i>
-                                    <i class="font-13 fa fa-star"></i>
-                                    <i class="font-13 fa fa-star-o"></i>
-                                    <i class="font-13 fa fa-star-o"></i>
+                                    <!-- Start product button -->
+                                    <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                    <div class="button-set">
+                                        <a href="javascript:void(0)" title="Quick View" class="quick-view-popup quick-view" data-toggle="modal" data-target="#content_quickview">
+                                            <i class="icon anm anm-search-plus-r"></i>
+                                        </a>
+                                        <div class="wishlist-btn">
+                                            <a class="wishlist add-to-wishlist" href="#" title="Add to Wishlist">
+                                                <i class="icon anm anm-heart-l"></i>
+                                            </a>
+                                        </div>
+                                        <div class="compare-btn">
+                                            <a class="compare add-to-compare" href="compare.html" title="Add to Compare">
+                                                <i class="icon anm anm-random-r"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- end product button -->
                                 </div>
-                                <!-- Variant -->
-                                <ul class="swatches">
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant1.jpg') }}" alt="image" /></li>
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant2.jpg') }}" alt="image" /></li>
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant3.jpg') }}" alt="image" /></li>
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant4.jpg') }}" alt="image" /></li>
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant5.jpg') }}" alt="image" /></li>
-                                    <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant6.jpg') }}" alt="image" /></li>
-                                </ul>
-                                <!-- End Variant -->
+                                <!-- end product image -->
+                                <!--start product details -->
+                                <div class="product-details text-center">
+                                    <!-- product name -->
+                                    <div class="product-name text-capitalize">
+                                        <a href="{{ route('products.details', $key->slug) }}">{{ $key->title }}</a>
+                                    </div>
+                                    <!-- End product name -->
+                                    <!-- product price -->
+                                    <div class="product-price">
+                                        <span class="old-price">${{ $key->regular_price }}</span>
+                                        <span class="price">${{ $key->sale_price }}</span>
+                                    </div>
+                                    <!-- End product price -->
+
+                                    <div class="product-review">
+                                        <i class="font-13 fa fa-star"></i>
+                                        <i class="font-13 fa fa-star"></i>
+                                        <i class="font-13 fa fa-star"></i>
+                                        <i class="font-13 fa fa-star-o"></i>
+                                        <i class="font-13 fa fa-star-o"></i>
+                                    </div>
+                                    <!-- Variant -->
+                                    <ul class="swatches">
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant1.jpg') }}" alt="image" /></li>
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant2.jpg') }}" alt="image" /></li>
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant3.jpg') }}" alt="image" /></li>
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant4.jpg') }}" alt="image" /></li>
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant5.jpg') }}" alt="image" /></li>
+                                        <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant6.jpg') }}" alt="image" /></li>
+                                    </ul>
+                                    <!-- End Variant -->
+                                </div>
+                                <!-- End product details -->
                             </div>
-                            <!-- End product details -->
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
-            </div>
             @endif
             <!--End Related Product Slider-->
 
             <!--Recently Product Slider-->
             <div class="related-product grid-products">
-                    <header class="section-header">
-                        <h2 class="section-header__title text-center h2"><span>Recently Viewed Product</span></h2>
-                        <p class="sub-heading">You can manage this section from store admin as describe in above section</p>
-                    </header>
-                    <div class="productPageSlider">
-                        <div class="col-12 item">
+                <header class="section-header">
+                    <h2 class="section-header__title text-center h2"><span>Recently Viewed Product</span></h2>
+                    <p class="sub-heading">You can manage this section from store admin as describe in above section</p>
+                </header>
+                <div class="productPageSlider">
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image6.jpg" src="assets/images/product-images/product-image6.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image6-1.jpg" src="assets/images/product-images/product-image6-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                    <!-- product label -->
-                                    <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
-                                    <!-- End product label -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image6.jpg" src="assets/images/product-images/product-image6.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image6-1.jpg" src="assets/images/product-images/product-image6-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                                <!-- product label -->
+                                <div class="product-labels rectangular"><span class="lbl on-sale">-16%</span> <span class="lbl pr-label1">new</span></div>
+                                <!-- End product label -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Zipper Jacket</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Zipper Jacket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image7.jpg" src="assets/images/product-images/product-image7.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image7-1.jpg" src="assets/images/product-images/product-image7-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image7.jpg" src="assets/images/product-images/product-image7.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image7-1.jpg" src="assets/images/product-images/product-image7-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Zipper Jacket</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Zipper Jacket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image8.jpg" src="assets/images/product-images/product-image8.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image8-1.jpg" src="assets/images/product-images/product-image8-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
-
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image8.jpg" src="assets/images/product-images/product-image8.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image8-1.jpg" src="assets/images/product-images/product-image8-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Workers Shirt Jacket</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Workers Shirt Jacket</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image9.jpg" src="assets/images/product-images/product-image9.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image9-1.jpg" src="assets/images/product-images/product-image9-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image9.jpg" src="assets/images/product-images/product-image9.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image9-1.jpg" src="assets/images/product-images/product-image9-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Watercolor Sport Jacket in Brown/Blue</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Watercolor Sport Jacket in Brown/Blue</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image10.jpg" src="assets/images/product-images/product-image10.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image10-1.jpg" src="assets/images/product-images/product-image10-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image10.jpg" src="assets/images/product-images/product-image10.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image10-1.jpg" src="assets/images/product-images/product-image10-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Washed Wool Blazer</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Washed Wool Blazer</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image13.jpg" src="assets/images/product-images/product-image13.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image13-1.jpg" src="assets/images/product-images/product-image13-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
-
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image13.jpg" src="assets/images/product-images/product-image13.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image13-1.jpg" src="assets/images/product-images/product-image13-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Ashton Necklace</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Ashton Necklace</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image14.jpg" src="assets/images/product-images/product-image14.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image14-1.jpg" src="assets/images/product-images/product-image14-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image14.jpg" src="assets/images/product-images/product-image14.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image14-1.jpg" src="assets/images/product-images/product-image14-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Ara Ring</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
-                        <div class="col-12 item">
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Ara Ring</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
+                    </div>
+                    <div class="col-12 item">
+                        <!-- start product image -->
+                        <div class="product-image">
                             <!-- start product image -->
-                            <div class="product-image">
-                                <!-- start product image -->
-                                <a href="#">
-                                    <!-- image -->
-                                    <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image15.jpg" src="assets/images/product-images/product-image15.jpg" alt="image" title="product">
-                                    <!-- End image -->
-                                    <!-- Hover image -->
-                                    <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image15-1.jpg" src="assets/images/product-images/product-image15-1.jpg" alt="image" title="product">
-                                    <!-- End hover image -->
-                                </a>
-                                <!-- end product image -->
-                            </div>
+                            <a href="#">
+                                <!-- image -->
+                                <img class="primary blur-up lazyload" data-src="assets/images/product-images/product-image15.jpg" src="assets/images/product-images/product-image15.jpg" alt="image" title="product">
+                                <!-- End image -->
+                                <!-- Hover image -->
+                                <img class="hover blur-up lazyload" data-src="assets/images/product-images/product-image15-1.jpg" src="assets/images/product-images/product-image15-1.jpg" alt="image" title="product">
+                                <!-- End hover image -->
+                            </a>
                             <!-- end product image -->
-
-                            <!--start product details -->
-                            <div class="product-details text-center">
-                                <!-- product name -->
-                                <div class="product-name">
-                                    <a href="#">Ara Ring</a>
-                                </div>
-                                <!-- End product name -->
-                            </div>
-                            <!-- End product details -->
                         </div>
+                        <!-- end product image -->
+
+                        <!--start product details -->
+                        <div class="product-details text-center">
+                            <!-- product name -->
+                            <div class="product-name">
+                                <a href="#">Ara Ring</a>
+                            </div>
+                            <!-- End product name -->
+                        </div>
+                        <!-- End product details -->
                     </div>
                 </div>
-            <!--End Recently Product Slider-->
             </div>
+            <!--End Recently Product Slider-->
+        </div>
         <!--#ProductSection-product-template-->
     </div>
     <!--MainContent-->
