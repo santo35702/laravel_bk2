@@ -8,10 +8,10 @@
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <x-jet-validation-errors class="mb-4" />
+                <x-jet-validation-errors class="mb-4 alert alert-warning alert-dismissible fade show" />
 
                 @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
+                    <div class="mb-4 font-medium text-sm text-green-600 alert alert-info">
                         {{ session('status') }}
                     </div>
                 @endif
@@ -19,10 +19,10 @@
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Enter Email Address" name="email" :value="old('email')" required autofocus>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="username" :value="old('username')" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
