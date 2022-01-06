@@ -52,16 +52,18 @@
                                         <td class="cart__update-wrapper cart-flex-item text-right">
                                             <div class="cart__qty text-center">
                                                 <div class="qtyField">
-                                                    <a class="qtyBtn minus" href="javascript:void(0);"><i class="icon icon-minus"></i></a>
-                                                    <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="1" pattern="[0-9]*">
-                                                    <a class="qtyBtn plus" href="javascript:void(0);"><i class="icon icon-plus"></i></a>
+                                                    <a class="qtyBtn minus" href="javascript:void(0);" wire:click.prevent="decreaseQty('{{ $key->rowId }}')"><i class="icon icon-minus"></i></a>
+                                                    <input class="cart__qty-input qty" type="text" name="updates[]" id="qty" value="{{ $key->qty }}" pattern="[0-9]*">
+                                                    <a class="qtyBtn plus" href="javascript:void(0);" wire:click.prevent="increaseQty('{{ $key->rowId }}')"><i class="icon icon-plus"></i></a>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="text-right small--hide cart-price">
                                             <div><span class="money">${{ $key->subtotal }}</span></div>
                                         </td>
-                                        <td class="text-center small--hide"><a href="#" class="btn btn--secondary cart__remove" title="Remove tem"><i class="icon icon anm anm-times-l"></i></a></td>
+                                        <td class="text-center small--hide">
+                                            <a href="#" class="btn btn--secondary cart__remove" title="Remove item" wire:click.prevent="destroy('{{ $key->rowId }}')"><i class="icon icon anm anm-times-l"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -69,7 +71,7 @@
                                 <tr>
                                     <td colspan="3" class="text-left"><a href="{{ route('products.index') }}" class="btn--link cart-continue"><i class="icon icon-arrow-circle-left"></i> Continue shopping</a></td>
                                     <td colspan="1" class="text-right"><button type="button" name="update" class="btn--link cart-update"><i class="fa fa-refresh"></i> Update</button></td>
-                                    <td colspan="2" class="text-right"><button type="submit" name="update" class="btn--link cart-update"><i class="fa fa-trash"></i> Delete All</button></td>
+                                    <td colspan="2" class="text-right"><a href="#" class="btn--link cart-update" wire:click.prevent="removeAll()"><i class="fa fa-trash"></i> Delete All</a></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -337,10 +339,19 @@
                     <div class="solid-border">
                         <div class="row">
                             <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>
-                            <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">$735.00</span></span>
+                            <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">${{ Cart::instance('cart')->subtotal() }}</span></span>
+                            <hr class="clear">
+                            <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Tax</strong></span>
+                            <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">${{ Cart::instance('cart')->tax() }}</span></span>
+                            <hr class="clear">
+                            <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Shipping</strong></span>
+                            <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">Free Shipping</span></span>
+                            <hr class="clear">
+                            <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Total</strong></span>
+                            <span class="col-12 col-sm-6 cart__subtotal-title cart__subtotal text-right"><span class="money">${{ Cart::instance('cart')->total() }}</span></span>
                         </div>
-                        <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div>
-                        <p class="cart_tearm">
+                        {{-- <div class="cart__shipping">Shipping &amp; taxes calculated at checkout</div> --}}
+                        <p class="cart_tearm mt-2 pt-2">
                             <label>
                                 <input type="checkbox" name="tearm" id="cartTearm" class="checkbox" value="tearm" required="">
                                 I agree with the terms and conditions
@@ -352,6 +363,11 @@
                 </div>
             @else
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
+                    @if (session('status'))
+                        <div class="alert alert-success text-uppercase" role="alert">
+                            <i class="icon anm anm-truck-l icon-large"></i> &nbsp;<strong>Congratulations!</strong> {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="jumbotron d-flex justify-content-between">
                         <div>
                             <h1 class="display-4">Sorry...!!</h1>
