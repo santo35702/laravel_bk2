@@ -6,6 +6,8 @@ use App\Http\Livewire\Frontend\AboutUsPage;
 use App\Http\Livewire\Frontend\Product\IndexPage;
 use App\Http\Livewire\Frontend\Product\ListPage;
 use App\Http\Livewire\Frontend\Product\DetailsPage;
+use App\Http\Livewire\Frontend\Product\ByCategoryPage;
+use App\Http\Livewire\Frontend\Product\ListByCategoryPage;
 use App\Http\Livewire\Frontend\FAQPage;
 use App\Http\Livewire\Frontend\CartPage;
 use App\Http\Livewire\Frontend\CheckoutPage;
@@ -46,7 +48,12 @@ Route::get('/about-us', AboutUsPage::class)->name('about');
 Route::prefix('products')->name('products.')->group(function ()
 {
     Route::get('/', IndexPage::class)->name('index');
-    Route::get('/list', ListPage::class)->name('list');
+    Route::prefix('list')->name('list.')->group(function ()
+    {
+        Route::get('/', ListPage::class)->name('index');
+        Route::get('/categories/{slug}', ListByCategoryPage::class)->name('by_category');
+    });
+    Route::get('/categories/{slug}', ByCategoryPage::class)->name('by_category');
     Route::get('/{slug}', DetailsPage::class)->name('details');
 });
 

@@ -21,7 +21,7 @@
                             <div class="widget-content">
                                 <ul class="sidebar_categories text-capitalize">
                                     @foreach (DB::table('categories')->orderBy('name')->get() as $key)
-                                        <li class="lvl-1"><a href="#;" class="site-nav">{{ $key->name }}</a></li>
+                                        <li class="lvl-1"><a href="{{ route('products.by_category', $key->slug) }}" class="site-nav">{{ $key->name }}</a></li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -216,14 +216,10 @@
                         <div class="filters-toolbar-wrapper">
                             <div class="row">
                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
-                                    <a href="{{ route('products.index') }}" title="Grid View" class="change-view @if (request()->routeIs('products.index'))
-                                        change-view--active
-                                    @endif">
+                                    <a href="{{ route('products.index') }}" title="Grid View" class="change-view change-view--active">
                                         <img src="{{ asset('assets/images/grid.jpg') }}" alt="Grid" />
                                     </a>
-                                    <a href="{{ route('products.list') }}" title="List View" class="change-view @if (request()->routeIs('products.list'))
-                                        change-view--active
-                                    @endif">
+                                    <a href="{{ route('products.list.index') }}" title="List View" class="change-view">
                                         <img src="{{ asset('assets/images/list.jpg') }}" alt="List" />
                                     </a>
                                 </div>
@@ -399,7 +395,7 @@
                 </div>
                 <hr class="clear">
                 <div class="pagination d-flex justify-content-between">
-                    <p>Showing Total {{ $products->firstItem() }} to {{ $products->lastItem() }} Items from {{ $products->total() }}</p>
+                    <p>Showing Total {{ $products->firstItem() }} Items to {{ $products->lastItem() }} Items from {{ $products->total() }} Result</p>
                     {{ $products->links() }}
                 </div>
             </div>

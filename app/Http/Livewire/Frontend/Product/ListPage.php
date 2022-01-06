@@ -42,7 +42,7 @@ class ListPage extends Component
         } else {
             $products = Product::paginate($this->pagesize);
         }
-        
+
         $popular_products = Product::inRandomOrder()->limit(5)->get();
         return view('livewire.frontend.product.list-page', ['products' => $products, 'popular_products' => $popular_products])->layout('layouts.base');
     }
