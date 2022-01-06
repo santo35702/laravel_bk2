@@ -216,30 +216,49 @@
                         <div class="filters-toolbar-wrapper">
                             <div class="row">
                                 <div class="col-4 col-md-4 col-lg-4 filters-toolbar__item collection-view-as d-flex justify-content-start align-items-center">
-                                    <a href="{{ route('products.index') }}" title="Grid View" class="change-view change-view--active">
+                                    <a href="{{ route('products.index') }}" title="Grid View" class="change-view @if (request()->routeIs('products.index'))
+                                        change-view--active
+                                    @endif">
                                         <img src="{{ asset('assets/images/grid.jpg') }}" alt="Grid" />
                                     </a>
-                                    <a href="{{ route('products.list') }}" title="List View" class="change-view">
+                                    <a href="{{ route('products.list') }}" title="List View" class="change-view @if (request()->routeIs('products.list'))
+                                        change-view--active
+                                    @endif">
                                         <img src="{{ asset('assets/images/list.jpg') }}" alt="List" />
                                     </a>
                                 </div>
                                 <div class="col-4 col-md-4 col-lg-4 text-center filters-toolbar__item filters-toolbar__item--count d-flex justify-content-center align-items-center">
-                                    <span class="filters-toolbar__product-count">Showing: 22</span>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend">
+                                            <label for="SortBy" class="input-group-text">Short By:</label>
+                                        </div>
+                                        <select id="SortBy" class="custom-select custom-select-sm" wire:model="sorting">
+                                            <option value="default" selected>Default</option>
+                                            <option disabled>Best Selling</option>
+                                            <option value="name">Alphabetically, A-Z</option>
+                                            <option value="name-desc">Alphabetically, Z-A</option>
+                                            <option value="price">Price, low to high</option>
+                                            <option value="price-desc">Price, high to low</option>
+                                            <option value="date">Date, new to old</option>
+                                            <option value="date-desc">Date, old to new</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-4 col-md-4 col-lg-4 text-right">
-                                    <div class="filters-toolbar__item">
-                                        <label for="SortBy" class="hidden">Sort</label>
-                                        <select name="SortBy" id="SortBy" class="filters-toolbar__input filters-toolbar__input--sort">
-                                            <option value="title-ascending" selected="selected">Sort</option>
-                                            <option>Best Selling</option>
-                                            <option>Alphabetically, A-Z</option>
-                                            <option>Alphabetically, Z-A</option>
-                                            <option>Price, low to high</option>
-                                            <option>Price, high to low</option>
-                                            <option>Date, new to old</option>
-                                            <option>Date, old to new</option>
+                                    <div class="input-group input-group-sm">
+                                        <select id="perPage" class="custom-select custom-select-sm" wire:model="pagesize">
+                                            <option value="20" selected>20</option>
+                                            <option value="30">30 Items</option>
+                                            <option value="40">40 Items</option>
+                                            <option value="50">50 Items</option>
+                                            <option value="60">60 Items</option>
+                                            <option value="70">70 Items</option>
+                                            <option value="80">80 Items</option>
+                                            <option value="100">100 Items</option>
                                         </select>
-                                        <input class="collection-header__default-sort" type="hidden" value="manual">
+                                        <div class="input-group-prepend">
+                                            <label for="perPage" class="input-group-text">Per Pages</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
