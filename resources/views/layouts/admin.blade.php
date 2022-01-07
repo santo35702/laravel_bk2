@@ -220,7 +220,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{ route('admin.categories.add') }}" class="nav-link">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>Add New Category</p>
                                         </a>
@@ -282,5 +282,7 @@
         @stack('script')
 
         @livewireScripts
+
+        @stack('script1')
     </body>
 </html>
