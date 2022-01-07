@@ -168,7 +168,7 @@
                             </div>
                         @else
                             <div class="image">
-                                <img src="{{ asset('admin/dist/img/user1-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                                <img src="{{ asset('admin/dist/img/user1-128x128.jpg') }}" class="img-circle elevation-2" alt="{{ Auth::user()->name }}">
                             </div>
                         @endif
                         <div class="info">
@@ -200,6 +200,10 @@
                                     <p>Dashboard</p>
                                 </a>
                             </li>
+                            <li class="nav-header">SHOP</li>
+                            <li class="nav-header">HOME PAGE</li>
+                            <li class="nav-header">TEAM</li>
+                            <li class="nav-header">MANAGEMENT</li>
                             <li class="nav-header">SESSIONS</li>
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
@@ -248,6 +252,8 @@
         <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+
+        @stack('script')
 
         @livewireScripts
     </body>
