@@ -20,6 +20,7 @@ use App\Http\Livewire\Frontend\NotFoundPage;
 use App\Http\Livewire\Admin\AdminDashboardPage;
 use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 use App\Http\Livewire\Admin\Category\AddCategoryPage;
+use App\Http\Livewire\Admin\Category\EditCategoryPage;
 
 // For Users__
 use App\Http\Livewire\User\UserDashboardPage;
@@ -81,6 +82,7 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->n
     {
         Route::get('/', CategoryIndexPage::class)->name('index');
         Route::get('/add', AddCategoryPage::class)->name('add');
+        Route::get('/edit/{id}', EditCategoryPage::class)->name('edit');
     });
 });
 
