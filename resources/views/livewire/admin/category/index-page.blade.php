@@ -31,7 +31,7 @@
                         <div class="card-header">
                             <h3 class="card-title">All Categories List</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-sm btn-primary">Add new</a>
+                                <a href="{{ route('admin.categories.add') }}" class="btn btn-sm btn-primary">Add new</a>
                                 <button type="button" class="btn btn-tool" data-card-widget="maximize" title="Expand">
                                     <i class="fas fa-expand"></i>
                                 </button>
