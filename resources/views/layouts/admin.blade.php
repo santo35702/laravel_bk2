@@ -203,9 +203,23 @@
                             <li class="nav-header">SHOP</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-circle text-danger"></i>
-                                    <p class="text">Products</p>
+                                    <i class="nav-icon fas fa-th text-danger"></i>
+                                    <p class="text">Products <i class="fas fa-angle-left right"></i></p>
                                 </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.products.index') }}" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>List All</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.products.add') }}" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>Add New</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">

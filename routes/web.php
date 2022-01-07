@@ -21,6 +21,9 @@ use App\Http\Livewire\Admin\AdminDashboardPage;
 use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 use App\Http\Livewire\Admin\Category\AddCategoryPage;
 use App\Http\Livewire\Admin\Category\EditCategoryPage;
+use App\Http\Livewire\Admin\Product\IndexPage as ProductIndexPage;
+use App\Http\Livewire\Admin\Product\AddPage;
+use App\Http\Livewire\Admin\Product\EditPage;
 
 // For Users__
 use App\Http\Livewire\User\UserDashboardPage;
@@ -78,6 +81,12 @@ Route::get('/404', NotFoundPage::class)->name('not_found');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->name('admin.')->group(function ()
 {
     Route::get('/dashboard', AdminDashboardPage::class)->name('dashboard');
+    Route::prefix('products')->name('products.')->group(function ()
+    {
+        Route::get('/', ProductIndexPage::class)->name('index');
+        Route::get('/add', AddPage::class)->name('add');
+        Route::get('/edit/{id}', EditPage::class)->name('edit');
+    });
     Route::prefix('categories')->name('categories.')->group(function ()
     {
         Route::get('/', CategoryIndexPage::class)->name('index');
