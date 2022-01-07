@@ -201,6 +201,32 @@
                                 </a>
                             </li>
                             <li class="nav-header">SHOP</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-circle text-danger"></i>
+                                    <p class="text">Products</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p class="text">Categories <i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>List All</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>Add New Category</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-header">HOME PAGE</li>
                             <li class="nav-header">TEAM</li>
                             <li class="nav-header">MANAGEMENT</li>
