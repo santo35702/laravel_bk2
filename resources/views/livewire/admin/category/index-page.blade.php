@@ -67,7 +67,7 @@
                                             <td>{{ $key->slug }}</td>
                                             <td>{{ $key->description }}</td>
                                             <td class="d-flex justify-content-center align-items-center">
-                                                <a href="#" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.categories.edit', $key->id) }}" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure, you want to Delete?') || event.stopImmediatePropagation()" class="btn btn-danger btn-sm" wire:click.prevent="deleteItem('{{ $key->id }}')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
