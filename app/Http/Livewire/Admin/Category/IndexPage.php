@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Admin\Category;
 
 use Livewire\Component;
+use App\Models\Category;
 
 class IndexPage extends Component
 {
     public function render()
     {
-        return view('livewire.admin.category.index-page')->layout('layouts.admin');
+        $categories = Category::get();
+        return view('livewire.admin.category.index-page', ['categories' => $categories])->layout('layouts.admin');
     }
 }
