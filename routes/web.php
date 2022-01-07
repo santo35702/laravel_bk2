@@ -18,6 +18,7 @@ use App\Http\Livewire\Frontend\NotFoundPage;
 
 // For Admin__
 use App\Http\Livewire\Admin\AdminDashboardPage;
+use App\Http\Livewire\Admin\Category\IndexPage as CategoryIndexPage;
 
 // For Users__
 use App\Http\Livewire\User\UserDashboardPage;
@@ -75,6 +76,10 @@ Route::get('/404', NotFoundPage::class)->name('not_found');
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->name('admin.')->group(function ()
 {
     Route::get('/dashboard', AdminDashboardPage::class)->name('dashboard');
+    Route::prefix('categories')->name('categories.')->group(function ()
+    {
+        Route::get('/', CategoryIndexPage::class)->name('index');
+    });
 });
 
 // Users / Customers Router__
