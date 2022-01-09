@@ -27,6 +27,7 @@ use App\Http\Livewire\Admin\Product\EditPage;
 use App\Http\Livewire\Admin\Carousel\CarouselPage;
 use App\Http\Livewire\Admin\Carousel\AddCarouselPage;
 use App\Http\Livewire\Admin\Carousel\EditCarouselPage;
+use App\Http\Livewire\Admin\HomeCategoryPage;
 
 // For Users__
 use App\Http\Livewire\User\UserDashboardPage;
@@ -90,18 +91,22 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->n
         Route::get('/add', AddPage::class)->name('add');
         Route::get('/edit/{id}', EditPage::class)->name('edit');
     });
+
     Route::prefix('categories')->name('categories.')->group(function ()
     {
         Route::get('/', CategoryIndexPage::class)->name('index');
         Route::get('/add', AddCategoryPage::class)->name('add');
         Route::get('/edit/{id}', EditCategoryPage::class)->name('edit');
     });
+
     Route::prefix('carousel')->name('carousel.')->group(function ()
     {
         Route::get('/', CarouselPage::class)->name('index');
         Route::get('/add', AddCarouselPage::class)->name('add');
         Route::get('/edit/{id}', EditCarouselPage::class)->name('edit');
     });
+
+    Route::get('home-category', HomeCategoryPage::class)->name('new_arrival');
 });
 
 // Users / Customers Router__
