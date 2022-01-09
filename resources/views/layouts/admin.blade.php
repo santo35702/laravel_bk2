@@ -262,6 +262,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.new_arrival') }}" class="nav-link">
+                                    <i class="nav-icon fab fa-slideshare text-primary"></i>
+                                    <p class="text">Manage New Arrival</p>
+                                </a>
+                            </li>
                             <li class="nav-header">TEAM</li>
                             <li class="nav-header">MANAGEMENT</li>
                             <li class="nav-header">SESSIONS</li>
