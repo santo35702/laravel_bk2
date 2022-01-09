@@ -15,6 +15,11 @@ class CreateHomeCarouselsTable extends Migration
     {
         Schema::create('home_carousels', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('subtitle');
+            $table->string('link');
+            $table->string('image');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
