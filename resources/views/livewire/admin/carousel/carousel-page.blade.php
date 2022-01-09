@@ -79,7 +79,7 @@
                                                 <a class="text-capitalize"><span class="badge {{ $key->status === 1 ? 'badge-success' : 'badge-danger' }} pb-1">{{ $key->status === 1 ? 'Active' : 'Inactive' }}</span></a>
                                             </td>
                                             <td class="d-flex justify-content-center align-items-center">
-                                                <a href="{{ route('admin.products.edit', $key->id) }}" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('admin.carousel.edit', $key->id) }}" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
                                                 <a href="#" onclick="confirm('Are you sure, you want to Delete?') || event.stopImmediatePropagation()" class="btn btn-danger btn-sm" wire:click.prevent="deleteItem('{{ $key->id }}')"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
