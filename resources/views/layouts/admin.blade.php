@@ -242,6 +242,26 @@
                                 </ul>
                             </li>
                             <li class="nav-header">HOME PAGE</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fab fa-slideshare text-primary"></i>
+                                    <p class="text">Carousel <i class="fas fa-angle-left right"></i></p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.carousel.index') }}" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>List All</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.carousel.add') }}" class="nav-link">
+                                            <i class="nav-icon far fa-circle text-info"></i>
+                                            <p>Add New Carousel</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="nav-header">TEAM</li>
                             <li class="nav-header">MANAGEMENT</li>
                             <li class="nav-header">SESSIONS</li>
