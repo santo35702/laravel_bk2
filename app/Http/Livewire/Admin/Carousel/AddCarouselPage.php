@@ -11,7 +11,7 @@ use App\Models\HomeCarousel;
 class AddCarouselPage extends Component
 {
     use WithFileUploads;
-    
+
     public $title;
     public $subtitle;
     public $link;
@@ -45,15 +45,19 @@ class AddCarouselPage extends Component
         ]);
 
         $carousel = new HomeCarousel();
-        $carousel->title = $this->title;
-        $carousel->subtitle = $this->subtitle;
-        $carousel->link = $this->link;
-        $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
-        $this->image->storeAs('slideshow-banners', $imageName);
-        $carousel->image = $imageName;
-        $carousel->status = $this->status;
-        $carousel->save();
-        $request->session()->flash('status', 'New Carousel Created successfully!');
+        if ($carousel->count() >= 5) {
+            $request->session()->flash('status', 'Sorry..!! Limit Exist, Please Delete some Carousel first.');
+        } else {
+            $carousel->title = $this->title;
+            $carousel->subtitle = $this->subtitle;
+            $carousel->link = $this->link;
+            $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
+            $this->image->storeAs('slideshow-banners', $imageName);
+            $carousel->image = $imageName;
+            $carousel->status = $this->status;
+            $carousel->save();
+            $request->session()->flash('status', 'New Carousel Created successfully!');
+        }
     }
 
     public function render()
