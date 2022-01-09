@@ -72,11 +72,11 @@
                                             </td>
                                             <td>{{ $key->subtitle }}</td>
                                             <td>
-                                                <img src="{{ asset('assets/images/product-images/' . $key->image) }}" alt="Carousel-{{ $sl++ }} Logo" class="img-thumbnail">
+                                                <img src="{{ asset('assets/images/slideshow-banners/' . $key->image) }}" alt="Carousel-{{ $sl++ }} Logo" class="img-thumbnail">
                                             </td>
                                             <td>{{ $key->link }}</td>
                                             <td>
-                                                <a class="text-capitalize"><span class="badge {{ $key->stock_status === 'instock' ? 'badge-success' : 'badge-danger' }} pb-1">{{ $key->stock_status }}</span></a>
+                                                <a class="text-capitalize"><span class="badge {{ $key->status === 1 ? 'badge-success' : 'badge-danger' }} pb-1">{{ $key->status === 1 ? 'Active' : 'Inactive' }}</span></a>
                                             </td>
                                             <td class="d-flex justify-content-center align-items-center">
                                                 <a href="{{ route('admin.products.edit', $key->id) }}" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
