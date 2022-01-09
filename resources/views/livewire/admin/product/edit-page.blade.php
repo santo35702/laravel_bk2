@@ -89,7 +89,7 @@
                                         <div class="form-group">
                                             <div class="custom-file">
                                                 <label for="image" class="custom-file-label">Product Image <span class="text-danger">*</span></label>
-                                                <input type="file" class="custom-file-input" id="image" wire:model="image">
+                                                <input type="file" class="custom-file-input" id="image" wire:model="newImage">
                                                 @error ('image')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
