@@ -15,6 +15,8 @@ class CreateHomeCategoriesTable extends Migration
     {
         Schema::create('home_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('category_id');
+            $table->integer('no_of_products');
             $table->timestamps();
         });
     }
