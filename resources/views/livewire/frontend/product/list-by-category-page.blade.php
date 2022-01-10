@@ -33,21 +33,13 @@
                         <div class="widget-title">
                             <h2>Price</h2>
                         </div>
-                        <form action="#" method="post" class="price-filter">
-                            <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                                <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                        <div class="price-filter">
+                            <div id="slider" wire:ignore></div>
+                            <div class="row mt-5">
+                                <p class="col-5 p-3 border shadow-sm d-inline-flex mb-0 mr-auto h4"><span class="text-info">Min: $ {{ $min_price }}</span></p>
+                                <p class="col-5 p-3 border shadow-sm d-inline-flex mb-0 h4"><span class="text-info">Max: $ {{ $max_price }}</span></p>
                             </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="no-margin"><input id="amount" type="text"></p>
-                                </div>
-                                <div class="col-6 text-right margin-25px-top">
-                                    <button class="btn btn-secondary btn--small">filter</button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                     <!--End Price Filter-->
                     <!--Size Swatches-->
@@ -352,3 +344,30 @@
         </div>
     </div>
 </div>
+
+@push('script')
+    <script>
+        var slider = document.getElementById('slider');
+
+        noUiSlider.create(slider, {
+            start: [1, 1000],
+            connect: true,
+            range: {
+                'min': 1,
+                'max': 1000
+            },
+            pips: {
+                mode: 'positions',
+                values: [0, 20, 40, 60, 80, 100],
+                stepped: true,
+                density: 4,
+            }
+        });
+
+        // When the slider value changes, update the input and span
+        slider.noUiSlider.on('update', function (value) {
+            @this.set('min_price', value[0]);
+            @this.set('max_price', value[1]);
+        });
+    </script>
+@endpush
