@@ -201,40 +201,42 @@
                                 </a>
                             </li>
                             <li class="nav-header">SHOP</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item {{ request()->routeIs('admin.products.*') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-th text-danger"></i>
                                     <p class="text">Products <i class="fas fa-angle-left right"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.products.index') }}" class="nav-link">
+                                        <a href="{{ route('admin.products.index') }}" class="nav-link @if (request()->routeIs('admin.products.index'))
+                                            active
+                                        @endif">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>List All</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.products.add') }}" class="nav-link">
+                                        <a href="{{ route('admin.products.add') }}" class="nav-link {{ request()->routeIs('admin.products.add') ? 'active' : '' }}">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>Add New</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item {{ request()->routeIs('admin.categories.*') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-copy"></i>
                                     <p class="text">Categories <i class="fas fa-angle-left right"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.categories.index') }}" class="nav-link">
+                                        <a href="{{ route('admin.categories.index') }}" class="nav-link {{ request()->routeIs('admin.categories.index') ? 'active' : '' }}">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>List All</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.categories.add') }}" class="nav-link">
+                                        <a href="{{ route('admin.categories.add') }}" class="nav-link {{ request()->routeIs('admin.categories.add') ? 'active' : '' }}">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>Add New Category</p>
                                         </a>
@@ -242,20 +244,20 @@
                                 </ul>
                             </li>
                             <li class="nav-header">HOME PAGE</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
+                            <li class="nav-item {{ request()->routeIs('admin.carousel.*') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('admin.carousel.*') ? 'active' : '' }}">
                                     <i class="nav-icon fab fa-slideshare text-primary"></i>
                                     <p class="text">Carousel <i class="fas fa-angle-left right"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.carousel.index') }}" class="nav-link">
+                                        <a href="{{ route('admin.carousel.index') }}" class="nav-link {{ request()->routeIs('admin.carousel.index') ? 'active' : '' }}">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>List All</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.carousel.add') }}" class="nav-link">
+                                        <a href="{{ route('admin.carousel.add') }}" class="nav-link {{ request()->routeIs('admin.carousel.add') ? 'active' : '' }}">
                                             <i class="nav-icon far fa-circle text-info"></i>
                                             <p>Add New Carousel</p>
                                         </a>
@@ -263,9 +265,16 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.new_arrival') }}" class="nav-link">
-                                    <i class="nav-icon fab fa-slideshare text-primary"></i>
+                                <a href="{{ route('admin.new_arrival') }}" class="nav-link {{ request()->routeIs('admin.new_arrival') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-ad {{ request()->routeIs('admin.new_arrival') ? '' : 'text-success' }}"></i>
                                     <p class="text">Manage New Arrival</p>
+                                </a>
+                            </li>
+                            <li class="nav-header">OTHERS</li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.new_arrival') }}" class="nav-link {{ request()->routeIs('admin.new_arrival') ? 'active' : '' }}">
+                                    <i class="nav-icon fas fa-clock"></i>
+                                    <p class="text">Manage Sale Time</p>
                                 </a>
                             </li>
                             <li class="nav-header">TEAM</li>
