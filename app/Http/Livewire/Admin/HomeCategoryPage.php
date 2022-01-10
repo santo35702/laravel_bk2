@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Models\HomeCategory;
+use App\Models\Category;
 
 class HomeCategoryPage extends Component
 {
@@ -29,6 +30,9 @@ class HomeCategoryPage extends Component
 
     public function render()
     {
-        return view('livewire.admin.home-category-page')->layout('layouts.admin');
+        $new_arrival_cat = HomeCategory::find(1);
+        $new_arrival_cat_id = explode(',', $new_arrival_cat->category_id);
+        $new_arrival = Category::whereIn('id', $new_arrival_cat_id)->get();
+        return view('livewire.admin.home-category-page', ['new_arrival' => $new_arrival])->layout('layouts.admin');
     }
 }

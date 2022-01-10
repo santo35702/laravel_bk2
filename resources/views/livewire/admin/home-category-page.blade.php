@@ -23,13 +23,58 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <form wire:submit.prevent="updateItem" enctype="multipart/form-data">
-                        @if (session('status'))
-                            <div class="alert alert-success text-uppercase alert-dismissible fade show" role="alert">
-                                {{ session('status') }}
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="card card-success card-outline shadow">
+                        <div class="card-header">
+                            <h3 class="card-title">New Arrival Categories List</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-sync"></i></a>
+                                <button type="button" class="btn btn-tool" data-card-widget="maximize" title="Expand">
+                                    <i class="fas fa-expand"></i>
+                                </button>
                             </div>
-                        @endif
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success text-uppercase alert-dismissible fade show" role="alert">
+                                    {{ session('status') }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                            @endif
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Name</th>
+                                        <th>Slug</th>
+                                        <th>Description</th>
+                                        {{-- <th>Action</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $sl = 1;
+                                    @endphp
+                                    @foreach ($new_arrival as $key)
+                                        <tr>
+                                            <td>{{ $sl++ }}</td>
+                                            <td>{{ $key->name }}</td>
+                                            <td>{{ $key->slug }}</td>
+                                            <td>{{ $key->description }}</td>
+                                            {{-- <td class="d-flex justify-content-center align-items-center">
+                                                <a href="{{ route('admin.categories.edit', $key->id) }}" class="btn btn-info btn-sm mr-1"><i class="fas fa-edit"></i></a>
+                                                <a href="#" onclick="confirm('Are you sure, you want to Delete?') || event.stopImmediatePropagation()" class="btn btn-danger btn-sm" wire:click.prevent="deleteItem('{{ $key->id }}')"><i class="fas fa-trash"></i></a>
+                                            </td> --}}
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <form wire:submit.prevent="updateItem" enctype="multipart/form-data">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">Arrivals Information</h3>
