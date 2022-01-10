@@ -28,6 +28,7 @@ use App\Http\Livewire\Admin\Carousel\CarouselPage;
 use App\Http\Livewire\Admin\Carousel\AddCarouselPage;
 use App\Http\Livewire\Admin\Carousel\EditCarouselPage;
 use App\Http\Livewire\Admin\HomeCategoryPage;
+use App\Http\Livewire\Admin\SalePage;
 
 // For Users__
 use App\Http\Livewire\User\UserDashboardPage;
@@ -107,6 +108,8 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->prefix('admin')->n
     });
 
     Route::get('home-category', HomeCategoryPage::class)->name('new_arrival');
+
+    Route::get('/sale', SalePage::class)->name('sale');
 });
 
 // Users / Customers Router__
