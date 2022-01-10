@@ -56,17 +56,28 @@
                                                         <img class="hover blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" alt="{{ $key->title }}" title="{{ $key->title }}">
                                                         <!-- End hover image -->
                                                         <!-- product label -->
-                                                        <div class="product-labels rectangular"><span class="lbl pr-label1">new</span></div>
+                                                        <div class="product-labels rectangular">
+                                                            @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                                <span class="lbl pr-label2">Sale</span>
+                                                            @endif
+                                                            <span class="lbl pr-label1">new</span>
+                                                        </div>
                                                         <!-- End product label -->
                                                     </a>
                                                     <!-- end product image -->
 
                                                     <!-- countdown start -->
-                                                    <div class="saleTime desktop" data-countdown="2022/03/01"></div>
+                                                    @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                        <div class="saleTime desktop" data-countdown="{{ Carbon\Carbon::parse($sale->sale_date) }}"></div>
+                                                    @endif
                                                     <!-- countdown end -->
 
                                                     <!-- Start product button -->
-                                                    <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                                    @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                        <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->sale_price }})">Add To Cart</a>
+                                                    @else
+                                                        <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                                    @endif
                                                     {{-- <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
                                                         <button class="btn btn-addto-cart" type="button">Select Options</button>
                                                     </form> --}}
@@ -97,8 +108,12 @@
                                                     <!-- End product name -->
                                                     <!-- product price -->
                                                     <div class="product-price">
-                                                        <span class="old-price">${{ $key->regular_price }}</span>
-                                                        <span class="price">${{ $key->sale_price }}</span>
+                                                        @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                            <span class="old-price">${{ $key->regular_price }}</span>
+                                                            <span class="price">${{ $key->sale_price }}</span>
+                                                        @else
+                                                            <span class="price">${{ $key->regular_price }}</span>
+                                                        @endif
                                                     </div>
                                                     <!-- End product price -->
 
@@ -122,7 +137,9 @@
                                                 </div>
                                                 <!-- End product details -->
                                                 <!-- countdown start -->
-                                                <div class="timermobile"><div class="saleTime desktop" data-countdown="2022/03/01"></div></div>
+                                                @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                    <div class="timermobile"><div class="saleTime desktop" data-countdown="{{ Carbon\Carbon::parse($sale->sale_date) }}"></div></div>
+                                                @endif
                                                 <!-- countdown end -->
                                             </div>
                                         @endforeach

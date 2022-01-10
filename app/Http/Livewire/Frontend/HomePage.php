@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\HomeCarousel;
 use App\Models\HomeCategory;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 use Cart;
 
@@ -26,6 +27,7 @@ class HomePage extends Component
         $new_arrival_cat_id = explode(',', $new_arrival_cat->category_id);
         $no_of_products = $new_arrival_cat->no_of_products;
         $new_arrival = Category::whereIn('id', $new_arrival_cat_id)->get();
-        return view('livewire.frontend.home-page', ['carousel' => $carousel, 'new_arrival' => $new_arrival, 'no_of_products' => $no_of_products])->layout('layouts.base');
+        $sale = Sale::find(1);
+        return view('livewire.frontend.home-page', ['carousel' => $carousel, 'new_arrival' => $new_arrival, 'no_of_products' => $no_of_products, 'sale' => $sale])->layout('layouts.base');
     }
 }

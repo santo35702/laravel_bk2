@@ -136,7 +136,11 @@
                                                 <a class="grid-view-item__title text-capitalize" href="{{ route('products.details', $key->slug) }}">{{ $key->title }}</a>
                                                 <div class="grid-view-item__meta">
                                                     <span class="product-price__price">
-                                                        <span class="money">${{ $key->regular_price }}</span>
+                                                        @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                            <span class="money">${{ $key->sale_price }}</span>
+                                                        @else
+                                                            <span class="money">${{ $key->regular_price }}</span>
+                                                        @endif
                                                     </span>
                                                 </div>
                                             </div>
@@ -265,7 +269,7 @@
                         <div class="row">
                             @if ($products->count() > 0)
                                 @foreach ($products as $key)
-                                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 item grid-view-item--sold-out">
                                         <!-- start product image -->
                                         <div class="product-image">
                                             <!-- start product image -->
@@ -277,17 +281,32 @@
                                                 <img class="hover blur-up lazyload" data-src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" src="{{ asset('assets/images/product-images/product-image1-1.jpg') }}" alt="{{ $key->title }}" title="{{ $key->title }}">
                                                 <!-- End hover image -->
                                                 <!-- product label -->
-                                                <div class="product-labels rectangular"><span class="lbl pr-label3">Popular</span><span class="lbl on-sale">Sale</span><span class="lbl on-sale">-16%</span><span class="lbl pr-label2">Hot</span> <span class="lbl pr-label1">new</span></div>
+                                                <div class="product-labels rectangular">
+                                                    @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                        <span class="lbl on-sale">Sale</span>
+                                                        <span class="lbl on-sale">-16%</span>
+                                                    @endif
+                                                    <span class="lbl pr-label3">Popular</span>
+                                                    <span class="lbl pr-label2">Hot</span>
+                                                    <span class="lbl pr-label1">new</span>
+                                                </div>
+                                                <span class="sold-out"><span>Sold out</span></span>
                                                 <!-- End product label -->
                                             </a>
                                             <!-- end product image -->
 
                                             <!-- countdown start -->
-                                            <div class="saleTime desktop" data-countdown="2022/03/01"></div>
+                                            @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                <div class="saleTime desktop" data-countdown="{{ Carbon\Carbon::parse($sale->sale_date) }}"></div>
+                                            @endif
                                             <!-- countdown end -->
 
                                             <!-- Start product button -->
-                                            <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                            @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->sale_price }})">Add To Cart</a>
+                                            @else
+                                                <a href="#" class="variants add btn btn-addto-cart" wire:click.prevent="AddToCart({{ $key->id }}, '{{ $key->title }}', {{ $key->regular_price }})">Add To Cart</a>
+                                            @endif
                                             {{-- <form class="variants add" action="#" onclick="window.location.href='cart.html'"method="post">
                                                 <button class="btn btn-addto-cart" type="button">Select Options</button>
                                             </form> --}}
@@ -319,8 +338,12 @@
                                             <!-- End product name -->
                                             <!-- product price -->
                                             <div class="product-price">
-                                                <span class="old-price">${{ $key->regular_price }}</span>
-                                                <span class="price">${{ $key->sale_price }}</span>
+                                                @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                                    <span class="old-price">${{ $key->regular_price }}</span>
+                                                    <span class="price">${{ $key->sale_price }}</span>
+                                                @else
+                                                    <span class="price">${{ $key->regular_price }}</span>
+                                                @endif
                                             </div>
                                             <!-- End product price -->
 
@@ -338,64 +361,36 @@
                                                 <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant3.jpg') }}" alt="image" /></li>
                                                 <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant4.jpg') }}" alt="image" /></li>
                                                 <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant5.jpg') }}" alt="image" /></li>
-                                                <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant6.jpg') }}" alt="image" /></li>
+                                                {{-- <li class="swatch medium rounded"><img src="{{ asset('assets/images/product-images/variant6.jpg') }}" alt="image" /></li> --}}
                                             </ul>
                                             <!-- End Variant -->
                                         </div>
                                         <!-- End product details -->
                                         <!-- countdown start -->
-                                        <div class="timermobile"><div class="saleTime desktop" data-countdown="2022/03/01"></div></div>
+                                        @if ($key->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
+                                            <div class="timermobile"><div class="saleTime desktop" data-countdown="{{ Carbon\Carbon::parse($sale->sale_date) }}"></div></div>
+                                        @endif
                                         <!-- countdown end -->
                                     </div>
                                 @endforeach
                             @else
-                                <p>No Products Found.</p>
+                                <div class="jumbotron d-flex justify-content-between">
+                                    <div>
+                                        <h1 class="display-4">Sorry...!!</h1>
+                                        <p class="lead">Currently no products matches.</p>
+                                        <hr class="my-4">
+                                        <p>You can check our all products, and you may love it.</p>
+                                        <a class="btn btn-primary btn-lg" href="{{ route('products.index') }}" role="button">Click here</a>
+                                    </div>
+                                    <img src="{{ asset('assets/images/cart.png')}}" alt="Cart logo">
+                                </div>
                             @endif
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 item grid-view-item--sold-out">
-                                <!-- start product image -->
-                                <div class="product-image">
-                                    <!-- start product image -->
-                                    <a href="#">
-                                        <!-- image -->
-                                        <img class="grid-view-item__image primary blur-up lazyload" data-src="assets/images/product-images/product-image27.jpg" src="assets/images/product-images/product-image27.jpg" alt="image" title="product" />
-                                        <!-- End image -->
-                                        <!-- Hover image -->
-                                        <img class="grid-view-item__image hover blur-up lazyload" data-src="assets/images/product-images/product-image27-1.jpg" src="assets/images/product-images/product-image27-1.jpg" alt="image" title="product" />
-                                        <!-- End hover image -->
-                                        <span class="sold-out"><span>Sold out</span></span>
-                                    </a>
-                                </div>
-                                <!-- end product image -->
-
-                                <!--start product details -->
-                                <div class="product-details text-center">
-                                    <!-- product name -->
-                                    <div class="product-name">
-                                        <a href="#">Camelia Reversible Jacket in Navy/Blue</a>
-                                    </div>
-                                    <!-- End product name -->
-                                    <!-- product price -->
-                                    <div class="product-price">
-                                        <span class="price">$488.00</span>
-                                    </div>
-                                    <!-- End product price -->
-
-                                    <div class="product-review">
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                        <i class="font-13 fa fa-star-o"></i>
-                                    </div>
-                                </div>
-                                <!-- End product details -->
-                            </div>
                         </div>
                     </div>
                 </div>
                 <hr class="clear">
                 <div class="pagination d-flex justify-content-between">
-                    <p>Showing Total {{ $products->firstItem() }} Items to {{ $products->lastItem() }} Items from {{ $products->total() }} Result</p>
+                    <p>Showing Total {{ $products->firstItem() }} Items to {{ $products->lastItem() }} Items from {{ $products->total() }} Result.</p>
                     {{ $products->links() }}
                 </div>
             </div>
