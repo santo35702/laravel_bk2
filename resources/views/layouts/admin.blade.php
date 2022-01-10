@@ -272,7 +272,7 @@
                             </li>
                             <li class="nav-header">OTHERS</li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.new_arrival') }}" class="nav-link {{ request()->routeIs('admin.new_arrival') ? 'active' : '' }}">
+                                <a href="{{ route('admin.sale') }}" class="nav-link {{ request()->routeIs('admin.sale') ? 'active' : '' }}">
                                     <i class="nav-icon fas fa-clock"></i>
                                     <p class="text">Manage Sale Time</p>
                                 </a>
